@@ -1,0 +1,70 @@
+##########################################################
+##################  所有profile共有的配置  #################
+##########################################################
+
+###################  自定义项目配置 ###################
+enzhico:
+  socket-port: 9076    #socket端口
+  ping-interval: 60000 #Ping消息间隔（毫秒）
+  ping-timeout: 180000 #Ping消息超时时间（毫秒）
+
+###################  项目启动端口  ###################
+server:
+  port: 9075
+  jetty:
+    max-http-post-size: 20000000
+
+###################  spring配置  ###################
+spring:
+  profiles:
+    active: dev
+  http:
+    multipart:
+      max-request-size: 100MB #最大请求大小
+      max-file-size: 100MB #最大文件大小
+
+logging:
+  level:
+    org.springframework.web.servlet: ERROR
+
+---
+
+#####################################################################
+########################  开发环境profile  ##########################
+#####################################################################
+spring:
+  profiles: dev
+
+enzhico:
+  image-dir: E:/pics/
+  load-js: E:/pics/html/js/echarts-load.js
+  index-html: file:///E:/pics/html/index.html
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      enzhico: DEBUG
+  file: E:/logs/sb-ehcharts.log
+
+---
+
+#####################################################################
+########################  测试环境profile  ##########################
+#####################################################################
+
+spring:
+  profiles: test
+
+enzhico:
+  image-dir: /var/pics/echarts/
+  load-js: /usr/share/nginx/html/echarts/js/echarts-load.js
+  index-html: file:///usr/share/nginx/html/echarts/index.html
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      enzhico: DEBUG
+  file: /var/logs/sb-ehcharts.log
+

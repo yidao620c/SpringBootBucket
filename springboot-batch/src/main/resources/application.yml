@@ -1,0 +1,90 @@
+##########################################################
+##################  所有profile共有的配置  #################
+##########################################################
+
+###################  自定义配置  ###################
+common:
+  csvVtoll: /var/csv/
+  csvCanton: /var/csv/
+  csvExeOffice: /var/csv/
+  csvApp: /var/csv/
+  csvLog: /var/csv/
+
+###################  spring配置  ###################
+spring:
+  profiles:
+    active: test
+  batch:
+    job:
+      enabled: false
+    initializer:
+      enabled: false
+
+###################  mybatis-plus配置  ###################
+mybatis-plus:
+  mapper-locations: classpath*:com/enzhico/trans/dao/repository/mapping/*.xml
+  typeAliasesPackage: >
+    com.enzhico.trans.dao.entity
+  global-config:
+    id-type: 1  # 0:数据库ID自增  1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    db-column-underline: false
+    refresh-mapper: true
+  configuration:
+    jdbcTypeForNull: NULL
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+
+logging:
+  level:
+    org.springframework.web.servlet: ERROR
+
+---
+
+#####################################################################
+########################  开发环境profile  ##########################
+#####################################################################
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@111.230.194.170:1521:orcl11g
+    username: adm_real
+    password: adm_real
+
+common:
+  location: 1
+  csvDir: E:/
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      enzhico: DEBUG
+  file: /var/logs/batch.log
+
+---
+
+#####################################################################
+########################  测试环境profile  ##########################
+#####################################################################
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl11g
+    username: adm_123
+    password: adm_123
+
+common:
+  csvDir: /var/csv/
+  location: 2
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      enzhico: DEBUG
+  file: /var/logs/batch.log
+

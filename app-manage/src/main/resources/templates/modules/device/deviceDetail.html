@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+	<link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+	<link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/font-awesome.min.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/animate.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/bootstrap-table.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/style.css}" rel="stylesheet"/>
+    <style type="text/css">
+    	label { font-weight: normal; }
+    	.row { margin-bottom: 15px; }
+    	.row:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<a th:href="@{/device/index}">返回</a>
+        <div class="ibox-content">
+        	<div style="width: 700px;margin: 0 auto;">
+        		<h3 style="text-align: center;">机具详情</h3>
+        		<div class="panel panel-default">
+        			<div class="panel-heading">硬件信息</div>
+        			<div class="panel-body">
+        				<div class="row">
+        					<label class="col-sm-3">IMEI码：</label>
+        					<label class="col-sm-9" th:text="${pos.imei}">866033030906816</label>
+        				</div>
+        				<div class="row">
+        					<label class="col-sm-3">序列号(SN)：</label>
+        					<label class="col-sm-9" th:text="${pos.sn}">VS0917CD00016/85925910</label>
+        				</div>
+        				<div class="row">
+        					<label class="col-sm-3">型号：</label>
+        					<label class="col-sm-9" th:text="${pos.series}">V1s/APOS A8</label>
+        				</div>
+    					<div class="row">
+    						<label class="col-sm-3">Android版本：</label>
+        					<label class="col-sm-9" th:text="${pos.androidVersion}">6.0/5.1.1</label>
+    					</div>
+    					<div class="row">
+    						<label class="col-sm-3">版本号：</label>
+        					<label class="col-sm-9" th:text="${pos.version}">B0182_C2BOM_V1.1.4_20171213/4.0.28</label>
+    					</div>
+        			</div>
+        		</div>
+        		<div class="panel panel-default">
+        			<div class="panel-heading">关联信息</div>
+        			<div class="panel-body">
+        				<div class="row">
+        					<label class="col-sm-3">机具产权方：</label>
+        					<label class="col-sm-9" th:text="${pos.owner}">招商银行昆明分行</label>
+        				</div>
+        				<div class="row">
+        					<label class="col-sm-3">机具归属项目：</label>
+        					<label class="col-sm-9" th:text="${pos.projectName}">行政收费项目</label>
+        				</div>
+        				<div class="row">
+        					<label class="col-sm-3">机具入网时间：</label>
+        					<label class="col-sm-9" th:text="${#dates.format(pos.jointime, 'yyyy-MM-dd HH:mm:ss')}">2017-01-01 12:35:00</label>
+        				</div>
+						<th:block th:if="${pos.location != null and pos.location != ''}">
+							<div class="row">
+								<label class="col-sm-3">机具归属网点：</label>
+								<label class="col-sm-9" th:text="${pos.location}">昆明市公安局焦勇警察支队车辆管理所</label>
+							</div>
+							<div class="row">
+								<label class="col-sm-3">网点绑定时间：</label>
+								<label class="col-sm-9">[[${#dates.format(pos.bindtime, 'yyyy-MM-dd HH:mm:ss')}]] <a data-th-attr="data-id=${pos.id}" class="record" style="float: right;">查看历史归属记录</a> </label>
+							</div>
+						</th:block>
+						<th:block th:if="${pos.location == null or pos.location == ''}">
+							<div class="row">
+								<label class="col-sm-3">机具归属网点：</label>
+								<label class="col-sm-9">无 <a data-th-attr="data-id=${pos.id}" class="record" style="float: right;">查看历史归属记录</a> </label>
+							</div>
+						</th:block>
+        			</div>
+        		</div>
+        		<div class="panel panel-default">
+        			<div class="panel-heading">机具状态</div>
+        			<div class="panel-body">
+        				<div class="row">
+        					<label class="col-sm-3">机具状态：</label>
+        					<label class="col-sm-9" th:text="${pos.posStateStr}">正常</label>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+	<script th:src="@{/static/js/jquery.min.js}"></script>
+	<script th:src="@{/static/js/bootstrap.min.js}"></script>
+	<script th:src="@{/static/js/content.js}"></script>
+	<script th:src="@{/static/js/plugins/layer/layer.min.js}"></script>
+	<script th:src="@{/static/js/plugins/bootstrap-table/bootstrap-table.js}"></script>
+	<script th:src="@{/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+	<script th:src="@{/static/js/modules/device/device-detail.js}"></script>
+</body>
+</html>

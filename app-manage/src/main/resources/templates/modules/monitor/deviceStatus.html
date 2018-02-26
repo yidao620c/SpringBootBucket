@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+    <link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/animate.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/bootstrap-table.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/style.css}" rel="stylesheet"/>
+    <style type="text/css">
+    	.top .form-group { width: 300px; margin: 0 auto; }
+    	.top .brid { width: 700px; margin: 30px auto; }
+    	.top section { width: 49%; display: inline-block; text-align: center; vertical-align: top; }
+    	.top hr { display: inline-block; margin: 0; height: 60px; width: 1px; vertical-align: top; background-color: #676a6c; }
+    	.top header { font-size: 18px; margin-bottom: 20px; }
+    	#table { table-layout: fixed; }
+    </style>
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox-content">
+        	<div class="top">
+        		<div class="form-group">
+        			<select id="projectSelect" class="form-control m-b">
+                        <option value="0">机具归属项目(全部)</option>
+                        <option th:each="p : ${projects}" th:value="${p.id}" th:text="${p.name}">螺蛳湾收费项目</option>
+                    </select>
+        		</div>
+        		<div class="brid">
+        			<section>
+        				<header>入网机具总数（台）</header>
+        				<article id="posCountArticle" th:text="${posCount}">xx</article>
+        			</section>
+        			<hr />
+        			<section>
+        				<header>布放单位数（个）</header>
+        				<article id="locationCountArticle" th:text="${locationCount}">xx</article>
+        			</section>
+        		</div>
+        	</div>
+        	<div class="toolbar">
+	        	<form class="form-inline">
+	        		<div class="form-group m-r">
+	        			<input id="locationS" type="text" autocomplete="off" class="form-control m-b" placeholder="请输入机具归属网点名称">
+	        		</div>
+	        		<button id="searchBtn" type="button" class="btn btn-success m-b m-r">搜索</button>
+	        	</form>
+	        </div>
+	        <table id="table" data-classes="table table-hover table-condensed" data-striped="true" data-mobile-responsive="true">
+                <thead>
+                    <tr>
+                        <th>机具归属网点名称</th>
+                        <th>机具归属项目</th>
+                        <th>机具数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <script th:src="@{/static/js/jquery.min.js}"></script>
+    <script th:src="@{/static/js/bootstrap.min.js}"></script>
+    <script th:src="@{/static/js/content.js}"></script>
+    <script th:src="@{/static/js/plugins/layer/layer.min.js}"></script>
+    <script th:src="@{/static/js/plugins/bootstrap-table/bootstrap-table.js}"></script>
+    <script th:src="@{/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+    <script th:src="@{/static/js/modules/monitor/device-status.js}"></script>
+</body>
+</html>

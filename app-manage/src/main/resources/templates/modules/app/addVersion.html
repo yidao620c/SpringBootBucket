@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+    <link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/animate.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/plugins/iCheck/custom.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/plugins/chosen/chosen.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/bootstrap-table.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/style.css}" rel="stylesheet"/>
+    <style type="text/css">
+        .bootstrap-table .table > thead > tr > th {
+            padding: 0;
+            line-height: 24px;
+            vertical-align: top;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox-content">
+        <form id="addVersionForm" class="form-horizontal m-t" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">上传应用文件：</label>
+                <div class="col-sm-8">
+                    <div id="file-pretty">
+                        <input id="upload" type="file" name="file" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">应用名称：</label>
+                <div class="col-sm-8">
+                    <input id="name" list="names" type="text" class="form-control" name="name" required="" aria-required="true">
+                    <datalist id="names">
+                        <option th:each="n : ${appNames}" th:value="${n}"></option>
+                    </datalist>
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label">版本号：</label>-->
+                <!--<div class="col-sm-8">-->
+                    <!--<input id="version" type="text" class="form-control" name="version" required="" aria-required="true">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label">归属项目名称：</label>-->
+                <!--<div class="col-sm-8">-->
+                    <!--<select id="projectId" name="projectId" class="form-control m-b">-->
+                        <!--<option th:each="p : ${projects}" th:value="${p.id}" th:text="${p.name}">行政项目</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-sm-3 control-label">版本说明：</label>
+                <div class="col-sm-8">
+                    <textarea id="tips" style="overflow: hidden; resize: none; width: 100%; height: 150px;"
+                              name="tips" class="form-control" required="" aria-required="true"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">发布范围：</label>
+                <div class="col-sm-8">
+                    <div class="radio-inline i-checks">
+                        <label>
+                            <input type="radio" name="publishRange" value="1" checked="">
+                            <i></i> 全部发布
+                        </label>
+                    </div>
+                    <div class="radio-inline i-checks">
+                        <label>
+                            <input type="radio" name="publishRange" value="2">
+                            <i></i>灰度发布
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="grayDiv" class="form-group" style="display: none;">
+                <div class="col-sm-4 col-sm-offset-3">
+                    <div class="bootstrap-table">
+                        <div class="fixed-table-container">
+                            <table id="table-range" data-classes="table table-hover table-condensed" data-striped="true" data-mobile-responsive="true">
+                                <thead>
+                                <tr>
+                                    <th>设备号</th>
+                                    <th>布放网点</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input id="grayIds" name="grayIds" type="hidden" value="">
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-3">
+                    <a id="submitBtn" class="btn m-r btn-primary">提交</a>
+                    <a class="btn btn-danger" onclick="window.location='/app/index'">取消</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/content.js}"></script>
+<script th:src="@{/static/js/plugins/layer/layer.min.js}"></script>
+<script th:src="@{/static/js/plugins/validate/jquery.validate.min.js}"></script>
+<script th:src="@{/static/js/plugins/validate/messages_zh.min.js}"></script>
+<script th:src="@{/static/js/plugins/prettyfile/bootstrap-prettyfile.js}"></script>
+<script th:src="@{/static/js/plugins/iCheck/icheck.min.js}"></script>
+<script th:src="@{/static/js/plugins/bootstrap-table/bootstrap-table.js}"></script>
+<script th:src="@{/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+<script th:src="@{/static/js/modules/app/add-version.js}"></script>
+</body>
+</html>

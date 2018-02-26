@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+    <link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/animate.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/bootstrap-table.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/style.css}" rel="stylesheet"/>
+    <style type="text/css">
+    	.top header { font-size: 16px; width: 250px; text-align: center; margin: 20px auto; padding: 10px 0; background-color: #ada9a9; color: #fff; }
+    	#table { table-layout: fixed; }
+    </style> 
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+        <a th:href="@{/monitor/index}">返回</a>
+        <div class="ibox-content">
+        	<div class="top">
+        		<header id="locationS" th:text="${location}">昆明公安局车管所</header>
+                <input id="projectIdS" type="hidden" th:value="${projectId}">
+        	</div>
+        	<div class="toolbar">
+	        	<form class="form-inline">
+	        		<div class="form-group m-r">
+	        			<input id="imeiS" type="text" autocomplete="off" class="form-control m-b" placeholder="请输入POS机的IMEI码">
+	        		</div>
+	        		<div class="form-group m-r">
+	        			<select id="onlineStateS" class="form-control m-b">
+	                        <option value="0">状态</option>
+	                        <option value="1">在线</option>
+	                        <option value="2">离线</option>
+	                    </select>
+	        		</div>
+	        		<button id="searchBtn" type="button" class="btn btn-success m-b m-r">搜索</button>
+	        	</form>
+	        </div>
+	        <table id="table" data-classes="table table-hover table-condensed" data-striped="true" data-mobile-responsive="true">
+                <thead>
+                    <tr>
+                        <th>机具IMEI码</th>
+                        <th>机具型号</th>
+                        <th>机具上传时间（离线时显示最近一次机具上传的时间）</th>
+                        <th>布放地址（离线时显示最近一次在线的地址）</th>
+                        <th>应用状态</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <script th:src="@{/static/js/jquery.min.js}"></script>
+    <script th:src="@{/static/js/bootstrap.min.js}"></script>
+    <script th:src="@{/static/js/content.js}"></script>
+    <script th:src="@{/static/js/plugins/layer/layer.min.js}"></script>
+    <script th:src="@{/static/js/plugins/bootstrap-table/bootstrap-table.js}"></script>
+    <script th:src="@{/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+    <script th:src="@{/static/js/modules/monitor/device-status-detail.js}"></script>
+</body>
+</html>

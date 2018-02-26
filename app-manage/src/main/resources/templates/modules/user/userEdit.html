@@ -1,0 +1,60 @@
+<th:block th:fragment="content" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <form id="userEditForm" class="form-horizontal m-t" style="overflow: hidden;" method="post" action="/user/edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">用户名：</label>
+            <div class="col-sm-5">
+                <input id="idHidden" type="hidden" name="id" th:value="${user.id}">
+                <input id="usernameEdit" type="text" class="form-control" name="username" th:value="${user.username}" readonly="readonly" aria-required="true">
+            </div>
+            <div class="col-sm-4"><span class="Validform_checktip"></span></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">姓名：</label>
+            <div class="col-sm-5">
+                <input id="nameEdit" type="text" class="form-control" name="name" th:value="${user.name}"
+                       aria-required="true" nullmsg="请输入姓名" errormsg="请输入2-20位字符">
+            </div>
+            <div class="col-sm-4"><span class="Validform_checktip"></span></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">请选择归属项目：</label>
+            <div class="col-sm-5">
+                <div class="input-group">
+                    <select id="psEdit" name="pids" data-placeholder="请选择归属项目" class="chosen-select" multiple style="width: 273.83px;" tabindex="4">
+                        <option th:each="p : ${projects}" th:value="${p.id}" hassubinfo="true" th:text="${p.name}"
+                                th:selected="${#lists.contains(user.pidsList, p.id)}">螺蛳湾收费项目</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">联系电话：</label>
+            <div class="col-sm-5">
+                <input id="phoneEdit" type="text" class="form-control" name="phone" th:value="${user.phone}" aria-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注：</label>
+            <div class="col-sm-5">
+                    <textarea id="tipsEdit" style="overflow: hidden; resize: none; width: 100%; height: 60px;" name="tips" th:field="${user.tips}" class="form-control" aria-required="true"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">状态：</label>
+            <div class="col-sm-5">
+                <div class="radio-inline i-checks">
+                    <label>
+                        <input type="radio" name="state" th:checked="${user.state == 1}" value="1">
+                        <i></i> 可用
+                    </label>
+                </div>
+                <div class="radio-inline i-checks">
+                    <label>
+                        <input type="radio" name="state" th:checked="${user.state == 2}" value="2">
+                        <i></i> 禁用
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+</th:block>

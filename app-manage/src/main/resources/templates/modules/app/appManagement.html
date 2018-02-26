@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+	<link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+	<link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/font-awesome.min.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/animate.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/bootstrap-table.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/style.css}" rel="stylesheet"/>
+	<style type="text/css">
+		#table { table-layout: fixed; }
+	</style>
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox-content">
+        	<div class="toolbar">
+	        	<form class="form-inline">
+	        		<div class="form-group m-r">
+	        			<select id="appNameS" class="form-control m-b">
+	                        <option value="">应用名称</option>
+	                        <option th:each="appName: ${appNames}" th:value="${appName}" th:text="${appName}">非税收入收费</option>
+	                    </select>
+	        		</div>
+	        		<div class="form-group m-r">
+	        			<select id="versionS" class="form-control m-b">
+	                        <option value="">版本号</option>
+	                    </select>
+						<input id="appVersionMap" type="hidden" th:value="${appVersionMap}">
+	        		</div>
+	        		<div class="form-group m-r">
+	        			<select id="projectIdS" class="form-control m-b">
+	                        <option value="0">归属项目名称</option>
+	                        <option th:each="project: ${projects}" th:value="${project.id}" th:text="${project.name}">行政项目</option>
+	                    </select>
+	        		</div>
+	        		<div class="form-group m-r">
+	        			<select id="publishRangeS" class="form-control m-b">
+	                        <option value="0">发布范围</option>
+	                        <option value="1">全网发布</option>
+	                        <option value="2">灰度发布</option>
+	                    </select>
+	        		</div>
+	        		<div class="form-group m-r">
+		              	<label class="control-label" style="vertical-align: super;">版本发布时间：</label>
+	                	<input id="publishtimeRangeS" type="text" style="font-size: 14px;" class="laydate-icon form-control layer-date m-b" placeholder="请选择">
+	        		</div>
+	        		<button id="searchBtn" type="button" class="btn btn-success m-b m-r">搜索</button>
+	        		<a th:href="@{/app/publish}" class="btn btn-success m-b">发布新版本</a>
+	        	</form>
+	        </div>
+	        <table id="table" data-classes="table table-hover table-condensed" data-striped="true" data-mobile-responsive="true">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>应用名称</th>
+                        <th data-sortable="true">版本号</th>
+                        <th>归属项目名称</th>
+                        <th>版本说明</th>
+                        <th>发布时间</th>
+                        <th>发布范围</th>
+                        <th>操作者用户名</th>
+                        <th>操作者姓名</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+	<script th:src="@{/static/js/jquery.min.js}"></script>
+	<script th:src="@{/static/js/bootstrap.min.js}"></script>
+	<script th:src="@{/static/js/content.js}"></script>
+	<script th:src="@{/static/js/plugins/layer/layer.min.js}"></script>
+	<script th:src="@{/static/js/plugins/layer/laydate/laydate.js}"></script>
+	<script th:src="@{/static/js/plugins/bootstrap-table/bootstrap-table.js}"></script>
+	<script th:src="@{/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+	<script th:src="@{/static/js/modules/app/app-management.js}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enzhico.jwt.dao.repository.ApiDao">
+
+    <!-- 查询是否存在发布的新版本-->
+    <select id="selectPublishCount" parameterType="versionParam" resultType="versionResult">
+        SELECT
+            A.name AS appName,
+            A.version AS version,
+            A.tips AS tips,
+            A.publishtime AS publishtime
+        FROM t_app A
+            LEFT OUTER JOIN t_app_publish B ON A.id=B.app_id
+            LEFT OUTER JOIN t_pos C ON B.pos_id=C.id
+        WHERE
+            A.application_id=#{applicationId}
+            AND A.version &lt;&gt; #{version}
+            AND (A.publish_range=1 OR A.publish_range=2 AND C.imei=#{imei})
+        ORDER BY A.publishtime DESC
+        LIMIT 1
+    </select>
+
+    <select id="selectSessionId" resultType="string" parameterType="string">
+        SELECT A.session_id
+        FROM
+            t_pos_monitor A
+            LEFT OUTER JOIN t_pos B ON A.pos_id=B.id
+        WHERE B.imei = #{imei}
+        LIMIT 1
+    </select>
+
+</mapper>
