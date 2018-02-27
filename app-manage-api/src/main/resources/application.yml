@@ -68,7 +68,7 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/pos-api.log
+  file: E:/logs/app-manage-api.log
 
 ---
 
