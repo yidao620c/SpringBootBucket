@@ -4,25 +4,17 @@
 
 ###################  自定义项目配置 ###################
 xncoding:
-  kaptcha-open: true #是否开启登录时验证码 (true/false)
-  session-open: false #是否开启session验证 (true/false)
-  session-invalidate-time: 7200 #session失效时间 单位：秒
-  session-validation-interval: 3600 #多久检测一次失效的session 单位：秒
-  heartbeat-timeout: 10 # 机具心跳报告超时时间 单位：分钟
+  socket-port: 9096    #socket端口
+  ping-interval: 60000 #Ping消息间隔（毫秒）
+  ping-timeout: 180000 #Ping消息超时时间（毫秒）
 
 ###################  项目启动端口  ###################
-server.port: 8092
+server.port: 9095
 
 ###################  spring配置  ###################
 spring:
   profiles:
     active: dev
-  thymeleaf:
-    mode: HTML
-    cache: false
-  mvc:
-    view:
-      prefix: /templates
   http:
     multipart:
       max-request-size: 100MB #最大请求大小
@@ -30,11 +22,11 @@ spring:
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/xncoding/pos/dao/repository/mapping/*.xml
+  mapper-locations: classpath*:com/xncoding/jwt/dao/repository/mapping/*.xml
   typeAliasesPackage: >
-    com.xncoding.pos.api.model,
-    com.xncoding.pos.dao.entity,
-    com.xncoding.pos.common.dao.entity
+    com.xncoding.jwt.api.model,
+    com.xncoding.jwt.dao.entity,
+    com.xncoding.jwt.common.dao.entity
   global-config:
     id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
     db-column-underline: false
@@ -69,19 +61,14 @@ spring:
 
 ###################  自定义项目配置 ###################
 xncoding:
-  excel-path: E:/home/
-  files-path: E:/home/
-  files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
-  pics-path: E:/home/
-  pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
-  posapi-url-prefix: http://123.207.66.156:9095
+  apk-url-prefix: http://xncoding.net/files/ #APK文件访问URL前缀
 
 logging:
   level:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/app-manage.log
+  file: E:/logs/pos-api.log
 
 ---
 
@@ -100,17 +87,11 @@ spring:
 
 ###################  自定义项目配置 ###################
 xncoding:
-  excel-path: /var/data/
-  files-path: /usr/share/nginx/html/files/
-  files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
-  pics-path: /usr/share/nginx/html/pics/
-  pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
-#  posapi-url-prefix: http://posapi.enzhico.net
-  posapi-url-prefix: http://123.207.66.156:9095
+  apk-url-prefix: https://show.xncoding.net/files/ #APK文件访问URL前缀
 
 logging:
   level:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: /var/logs/app-manage.log
+  file: /var/logs/app-manage-api.log
