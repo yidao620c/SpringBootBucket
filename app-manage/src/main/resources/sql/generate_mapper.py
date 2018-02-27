@@ -18,10 +18,10 @@
 """
 
 ###################################下面的参数你来指定###########################
-src_base_dir = r'E:\enzhico\app-manage\src\main\java'
-domain_package = r'com.enzhico.pos.common.dao.entity'
-mapper_package = r'com.enzhico.pos.common.dao.repository'
-schema_name = r'E:\enzhico\app-manage\src\main\resources\sql\schema.sql'
+src_base_dir = r'E:\xncoding\app-manage\src\main\java'
+domain_package = r'com.xncoding.pos.common.dao.entity'
+mapper_package = r'com.xncoding.pos.common.dao.repository'
+schema_name = r'E:\xncoding\app-manage\src\main\resources\sql\schema.sql'
 author = r'熊能'
 TODAY_STR = '2018/01/02'
 ###############################################################################

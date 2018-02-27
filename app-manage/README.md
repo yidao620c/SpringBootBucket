@@ -50,7 +50,7 @@ MyBatis DAO层相关代码生成方法：
 本地安装maven包的命令：
 
 ```
-mvn install:install-file -Dfile=AXMLPrinter-1.0.jar -DgroupId=com.enzhico -DartifactId=AXMLPrinter -Dversion=1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=AXMLPrinter-1.0.jar -DgroupId=com.xncoding -DartifactId=AXMLPrinter -Dversion=1.0 -Dpackaging=jar
 ```
 
 ## 测试账号

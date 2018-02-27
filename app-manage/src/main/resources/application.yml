@@ -3,7 +3,7 @@
 ##########################################################
 
 ###################  自定义项目配置 ###################
-enzhico:
+xncoding:
   kaptcha-open: true #是否开启登录时验证码 (true/false)
   session-open: false #是否开启session验证 (true/false)
   session-invalidate-time: 7200 #session失效时间 单位：秒
@@ -30,11 +30,11 @@ spring:
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/enzhico/pos/dao/repository/mapping/*.xml
+  mapper-locations: classpath*:com/xncoding/pos/dao/repository/mapping/*.xml
   typeAliasesPackage: >
-    com.enzhico.pos.api.model,
-    com.enzhico.pos.dao.entity,
-    com.enzhico.pos.common.dao.entity
+    com.xncoding.pos.api.model,
+    com.xncoding.pos.dao.entity,
+    com.xncoding.pos.common.dao.entity
   global-config:
     id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
     db-column-underline: false
@@ -63,24 +63,24 @@ spring:
   datasource:
       url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
       username: root
-      password: _EnZhi123
+      password: ******
   thymeleaf:
     cache: false
 
 ###################  自定义项目配置 ###################
-enzhico:
+xncoding:
   excel-path: E:/home/
   files-path: E:/home/
-  files-url-prefix: https://show.enzhico.net/files/ # 文件访问URL前缀
+  files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
   pics-path: E:/home/
-  pics-url-prefix: https://show.enzhico.net/pics/ # 图片访问URL前缀
+  pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
   posapi-url-prefix: http://123.207.66.156:9095
 
 logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: E:/logs/app-manage.log
 
 ---
@@ -94,17 +94,17 @@ spring:
   datasource:
       url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
       username: root
-      password: _EnZhi123
+      password: ******
   thymeleaf:
     cache: false
 
 ###################  自定义项目配置 ###################
-enzhico:
+xncoding:
   excel-path: /var/data/
   files-path: /usr/share/nginx/html/files/
-  files-url-prefix: https://show.enzhico.net/files/ # 文件访问URL前缀
+  files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
   pics-path: /usr/share/nginx/html/pics/
-  pics-url-prefix: https://show.enzhico.net/pics/ # 图片访问URL前缀
+  pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
 #  posapi-url-prefix: http://posapi.enzhico.net
   posapi-url-prefix: http://123.207.66.156:9095
 
@@ -112,5 +112,5 @@ logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: /var/logs/app-manage.log

@@ -2,14 +2,6 @@
 ##################  所有profile共有的配置  #################
 ##########################################################
 
-###################  自定义项目配置 ###################
-enzhico:
-  kaptcha-open: true  #是否开启登录时验证码 (true/false)
-  session-open: false #是否开启session验证 (true/false)
-
-###################  项目启动端口  ###################
-server.port: 8092
-
 ###################  spring配置  ###################
 spring:
   profiles:
@@ -17,13 +9,13 @@ spring:
   datasource:
     url: jdbc:mysql://123.207.66.156:3306/test?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
-    password: _EnZhi123
+    password: ******
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/enzhico/trans/dao/repository/mapping/*.xml
+  mapper-locations: classpath*:com/xncoding/pos/dao/repository/mapping/*.xml
   typeAliasesPackage: >
-    com.enzhico.trans.dao.entity
+    com.xncoding.pos.dao.entity
   global-config:
     id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
     db-column-underline: false
@@ -62,6 +54,6 @@ logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
-  file: E:/logs/trans.log
+      xncoding: DEBUG
+  file: E:/logs/app.log
 

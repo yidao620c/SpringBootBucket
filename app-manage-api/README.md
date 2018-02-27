@@ -23,21 +23,21 @@ Sockt.io官网：<https://socket.io/>
 ### WebSocket js客户端测试
 
 ```
-com.enzhico.pos.socket.server.ChatLauncher - /client/html/index.html
-com.enzhico.pos.socket.server.EventChatLauncher - /client/html/event-index.html
-com.enzhico.pos.socket.server.SslChatLauncher - /client/html/ssl-event-index.html
-com.enzhico.pos.socket.server.NamespaceChatLauncher - /client/html/namespace-index.html
-com.enzhico.pos.socket.server.AckChatLauncher - /client/html/ack-index.html
-com.enzhico.pos.socket.server.BinaryEventLauncher - /client/html/binary-event-index.html
+com.xncoding.pos.socket.server.ChatLauncher - /client/html/index.html
+com.xncoding.pos.socket.server.EventChatLauncher - /client/html/event-index.html
+com.xncoding.pos.socket.server.SslChatLauncher - /client/html/ssl-event-index.html
+com.xncoding.pos.socket.server.NamespaceChatLauncher - /client/html/namespace-index.html
+com.xncoding.pos.socket.server.AckChatLauncher - /client/html/ack-index.html
+com.xncoding.pos.socket.server.BinaryEventLauncher - /client/html/binary-event-index.html
 ```
 
 ### WebSocket Java客户端测试
 
 ```
 服务器：
-com.enzhico.pos.socket.server.SocketServer
+com.xncoding.pos.socket.server.SocketServer
 客户端：
-com.enzhico.pos.socket.client.SocketClient
+com.xncoding.pos.socket.client.SocketClient
 ```
 
 ### 广播消息中的namespace和room

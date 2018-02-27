@@ -22,9 +22,9 @@ spring:
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/enzhico/trans/dao/repository/mapping/*.xml
+  mapper-locations: classpath*:com/xncoding/trans/dao/repository/mapping/*.xml
   typeAliasesPackage: >
-    com.enzhico.trans.dao.entity
+    com.xncoding.trans.dao.entity
   global-config:
     id-type: 1  # 0:数据库ID自增  1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
     db-column-underline: false
@@ -49,7 +49,7 @@ spring:
   profiles: dev
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@111.230.194.170:1521:orcl11g
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl11g
     username: adm_real
     password: adm_real
 
@@ -61,7 +61,7 @@ logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: /var/logs/batch.log
 
 ---
@@ -85,6 +85,6 @@ logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: /var/logs/batch.log
 

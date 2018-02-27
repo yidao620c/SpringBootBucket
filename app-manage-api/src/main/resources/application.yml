@@ -3,7 +3,7 @@
 ##########################################################
 
 ###################  自定义项目配置 ###################
-enzhico:
+xncoding:
   socket-port: 9096    #socket端口
   ping-interval: 60000 #Ping消息间隔（毫秒）
   ping-timeout: 180000 #Ping消息超时时间（毫秒）
@@ -22,11 +22,11 @@ spring:
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/enzhico/jwt/dao/repository/mapping/*.xml
+  mapper-locations: classpath*:com/xncoding/jwt/dao/repository/mapping/*.xml
   typeAliasesPackage: >
-    com.enzhico.jwt.api.model,
-    com.enzhico.jwt.dao.entity,
-    com.enzhico.jwt.common.dao.entity
+    com.xncoding.jwt.api.model,
+    com.xncoding.jwt.dao.entity,
+    com.xncoding.jwt.common.dao.entity
   global-config:
     id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
     db-column-underline: false
@@ -55,19 +55,19 @@ spring:
   datasource:
       url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
       username: root
-      password: _EnZhi123
+      password: ******
   thymeleaf:
     cache: false
 
 ###################  自定义项目配置 ###################
-enzhico:
-  apk-url-prefix: http://enzhico.net/files/ #APK文件访问URL前缀
+xncoding:
+  apk-url-prefix: http://xncoding.net/files/ #APK文件访问URL前缀
 
 logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: E:/logs/pos-api.log
 
 ---
@@ -81,17 +81,17 @@ spring:
   datasource:
       url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
       username: root
-      password: _EnZhi123
+      password: ******
   thymeleaf:
     cache: false
 
 ###################  自定义项目配置 ###################
-enzhico:
-  apk-url-prefix: https://show.enzhico.net/files/ #APK文件访问URL前缀
+xncoding:
+  apk-url-prefix: https://show.xncoding.net/files/ #APK文件访问URL前缀
 
 logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: /var/logs/app-manage-api.log

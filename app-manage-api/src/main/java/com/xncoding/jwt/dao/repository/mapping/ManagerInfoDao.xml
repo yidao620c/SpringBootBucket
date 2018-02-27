@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xncoding.jwt.dao.repository.ManagerInfoDao">
+
+    <resultMap id="ManagerInfoMap" type="managerInfo">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="salt" column="salt"/>
+        <result property="state" column="state"/>
+        <collection property="roles" ofType="sysRole">
+            <id property="id" column="role_id"/>
+            <result property="role" column="role_role"/>
+            <collection property="permissions" ofType="permission">
+                <id property="id" column="perm_id"/>
+                <result property="permission" column="perm_permission"/>
+            </collection>
+        </collection>
+        <collection property="pidsList" ofType="integer">
+            <result column="project_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="findByUsername" resultMap="ManagerInfoMap">
+        SELECT DISTINCT
+        A.id AS id,
+        A.username AS username,
+        A.name AS name,
+        A.password AS password,
+        A.salt AS salt,
+        A.state AS state,
+        C.id AS role_id,
+        C.role AS role_role,
+        E.id AS perm_id,
+        E.permission AS perm_permission,
+        F.project_id AS project_id
+        FROM t_manager A
+        LEFT JOIN t_manager_role B ON A.id=B.manager_id
+        LEFT JOIN t_role C ON B.role_id=C.id
+        LEFT JOIN t_role_permission D ON C.id=D.role_id
+        LEFT JOIN t_permission E ON D.permission_Id=E.id
+        LEFT JOIN t_project_user F ON A.id=F.user_id
+        WHERE username=#{username}
+    </select>
+
+    <resultMap id="ManagerInfoMap2" type="managerInfo">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="phone" column="phone"/>
+        <result property="tips" column="tips"/>
+        <result property="state" column="state"/>
+        <result property="createdTime" column="createdTime"/>
+        <result property="pids" column="pids"/>
+        <result property="pnames" column="pnames"/>
+    </resultMap>
+    <select id="selectUsers" resultMap="ManagerInfoMap2" parameterType="searchUser">
+        SELECT DISTINCT
+        A.id AS id,
+        A.username AS username,
+        A.name AS name,
+        A.phone AS phone,
+        A.tips AS tips,
+        A.state AS state,
+        A.created_time AS createdTime,
+        group_concat(C.id) AS pids,
+        group_concat(C.name) AS pnames
+        FROM t_manager A
+        LEFT OUTER JOIN t_project_user B ON A.id=B.user_id
+        LEFT OUTER JOIN t_project C ON B.project_id=C.id
+        <where>
+            <if test='username != null and username != ""'>
+                (A.username LIKE "%"#{username}"%" OR A.name LIKE "%"#{username}"%")
+            </if>
+            <if test='phone != null and phone != ""'>
+                AND A.phone = #{phone}
+            </if>
+            <if test='state != null and state != 0'>
+                AND A.state = #{state}
+            </if>
+            <if test='createdTimeStart != null and createdTimeEnd != null'>
+                AND A.created_time BETWEEN #{createdTimeStart} AND #{createdTimeEnd}
+            </if>
+        </where>
+        GROUP BY A.id
+    </select>
+
+    <select id="selectUser" parameterType="int" resultType="managerInfo">
+        SELECT DISTINCT
+        A.id AS id,
+        A.username AS username,
+        A.name AS name,
+        A.phone AS phone,
+        A.tips AS tips,
+        A.state AS state,
+        A.created_time AS createdTime,
+        group_concat(C.id) AS pids
+        FROM t_manager A
+        LEFT OUTER JOIN t_project_user B ON A.id=B.user_id
+        LEFT OUTER JOIN t_project C ON B.project_id=C.id
+        WHERE A.id=#{id}
+        GROUP BY A.id
+    </select>
+</mapper>

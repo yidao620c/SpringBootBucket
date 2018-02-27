@@ -30,7 +30,7 @@ logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: E:/logs/app.log
 
 ---
@@ -43,5 +43,5 @@ logging:
   level:
     ROOT: INFO
     com:
-      enzhico: DEBUG
+      xncoding: DEBUG
   file: /var/logs/app.log
