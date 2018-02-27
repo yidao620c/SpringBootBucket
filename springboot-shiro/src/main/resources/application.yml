@@ -1,0 +1,116 @@
+##########################################################
+##################  所有profile共有的配置  #################
+##########################################################
+
+###################  自定义项目配置 ###################
+xncoding:
+  kaptcha-open: true #是否开启登录时验证码 (true/false)
+  session-open: false #是否开启session验证 (true/false)
+  session-invalidate-time: 7200 #session失效时间 单位：秒
+  session-validation-interval: 3600 #多久检测一次失效的session 单位：秒
+  heartbeat-timeout: 10 # 机具心跳报告超时时间 单位：分钟
+
+###################  项目启动端口  ###################
+server.port: 8092
+
+###################  spring配置  ###################
+spring:
+  profiles:
+    active: dev
+  thymeleaf:
+    mode: HTML
+    cache: false
+  mvc:
+    view:
+      prefix: /templates
+  http:
+    multipart:
+      max-request-size: 100MB #最大请求大小
+      max-file-size: 100MB #最大文件大小
+
+###################  mybatis-plus配置  ###################
+mybatis-plus:
+  mapper-locations: classpath*:com/xncoding/pos/dao/repository/mapping/*.xml
+  typeAliasesPackage: >
+    com.xncoding.pos.api.model,
+    com.xncoding.pos.dao.entity,
+    com.xncoding.pos.common.dao.entity
+  global-config:
+    id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    db-column-underline: false
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+
+###################  spring security配置  ###################
+security:
+  ignored: /static/**
+
+logging:
+  level:
+    org.springframework.web.servlet: ERROR
+
+---
+
+#####################################################################
+########################  开发环境profile  ##########################
+#####################################################################
+spring:
+  profiles: dev
+  datasource:
+      url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+      username: root
+      password: _EnZhi123
+  thymeleaf:
+    cache: false
+
+###################  自定义项目配置 ###################
+xncoding:
+  excel-path: E:/home/
+  files-path: E:/home/
+  files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
+  pics-path: E:/home/
+  pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
+  posapi-url-prefix: http://123.207.66.156:9095
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      xncoding: DEBUG
+  file: E:/logs/app-manage.log
+
+---
+
+#####################################################################
+########################  测试环境profile  ##########################
+#####################################################################
+
+spring:
+  profiles: test
+  datasource:
+      url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+      username: root
+      password: _EnZhi123
+  thymeleaf:
+    cache: false
+
+###################  自定义项目配置 ###################
+xncoding:
+  excel-path: /var/data/
+  files-path: /usr/share/nginx/html/files/
+  files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
+  pics-path: /usr/share/nginx/html/pics/
+  pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
+#  posapi-url-prefix: http://posapi.enzhico.net
+  posapi-url-prefix: http://123.207.66.156:9095
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      xncoding: DEBUG
+  file: /var/logs/app-manage.log

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SpringBoot Shiro测试</title>
+    <link rel="shortcut icon" href="../public/favicon.ico" th:href="@{/favicon.ico}"/>
+    <link href="../public/static/css/bootstrap.min.css" th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../public/static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet"/>
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+</head>
+
+<body class="gray-bg">
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name" style="height: 170px;"></h1>
+        </div>
+        <h2>欢迎使用XX管理平台</h2>
+        <div th:if="${msg}">
+        	<div id="login-alert1" class="alert alert-danger col-sm-12" th:text="${msg}"></div>
+        </div>
+        <div th:else>
+        	<div id="login-alert2" class="alert alert-danger col-sm-12" style="display: none;"></div>
+        </div>
+        <form class="m-t" id="form" role="form" method="post" th:action="@{/login}">
+            <div class="form-group">
+                <input id="login-username" th:value="${username}" name="username" type="text" autocomplete="off"
+                       class="form-control" placeholder="用户名" oninvalid="this.setCustomValidity('请输入用户名')" oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group">
+                <input id="login-password" th:value="${password}" name="password" type="password" autocomplete="off"
+                       class="form-control" placeholder="密码" oninvalid="this.setCustomValidity('请输入密码')" oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group" style="padding-bottom: 33px;">
+                <div class="col-sm-8" style="padding-left: 0; padding-right: 0;">
+                    <input class="form-control" type="text" name="captcha" placeholder="验证码" autocomplete="off"
+                           oninvalid="this.setCustomValidity('请输入验证码')" oninput="setCustomValidity('')">
+                </div>
+                <div class="col-sm-4" style="padding-left: 20px;">
+                    <img th:src="@{/kaptcha.jpg}" id="kaptcha" width="100%" height="100%"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
+            </div>
+            <!--<p class="text-muted text-center">-->
+                <!--<a href="login.html#"><small>忘记密码了？</small></a> | <a href="#">注册一个新账号</a>-->
+            <!--</p>-->
+        </form>
+    </div>
+</div>
+<script src="../public/static/js/jquery.min.js?v=2.1.4" th:src="@{/static/js/jquery.min.js}"></script>
+<script src="../public/static/js/bootstrap.min.js?v=3.3.6" th:src="@{/static/js/bootstrap.min.js}"></script>
+<script>
+    $(function () {
+        $("#kaptcha").on('click', function () {
+            changeKaptcha();
+        });
+        $('#form').submit(function() {
+        	var username = $('[name="username"]').val();
+        	var password = $('[name="password"]').val();
+        	if(username == '') {
+        		$('#login-alert').text('请输入用户名').show();
+        		return false;
+        	} else if(password == '') {
+        		$('#login-alert').text('请输入密码').show();
+        		return false;
+        	}
+        });
+    });
+    function changeKaptcha() {
+        $("#kaptcha").attr('src', '/kaptcha.jpg?' + Math.floor(Math.random() * 100)).fadeIn();
+    }
+</script>
+</body>
+</html>

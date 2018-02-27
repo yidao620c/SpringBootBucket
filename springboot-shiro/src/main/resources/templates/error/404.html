@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>404-页面未找到</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+    <link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/404.css}" media="screen"/>
+</head>
+<body>
+<div id="container">
+    <img class="png" th:src="@{/static/img/error/404.png}" alt=""/>
+    <img class="png msg" th:src="@{/static/img/error/404_msg.png}" alt=""/>
+    <p>
+        <a href="/"><img class="png" th:src="@{/static/img/error/404_to_index.png}" alt=""/></a>
+    </p>
+</div>
+<div id="cloud" class="png"></div>
+<pre style="DISPLAY: none"></pre>
+</body>
+</html>

@@ -55,7 +55,7 @@ mvn install:install-file -Dfile=AXMLPrinter-1.0.jar -DgroupId=com.xncoding -Dart
 
 ## 测试账号
 
-1. admin/123456
+1. admin/12345678
 2. test/12345678
 
 ## 许可证

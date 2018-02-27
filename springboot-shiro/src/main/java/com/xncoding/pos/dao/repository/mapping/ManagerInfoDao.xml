@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xncoding.pos.dao.repository.ManagerInfoDao">
+
+    <resultMap id="ManagerInfoMap" type="managerInfo">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="salt" column="salt"/>
+        <result property="state" column="state"/>
+        <collection property="roles" ofType="sysRole">
+            <id property="id" column="role_id"/>
+            <result property="role" column="role_role"/>
+            <collection property="permissions" ofType="permission">
+                <id property="id" column="perm_id"/>
+                <result property="permission" column="perm_permission"/>
+            </collection>
+        </collection>
+        <collection property="pidsList" ofType="integer">
+            <result column="project_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="findByUsername" resultMap="ManagerInfoMap">
+        SELECT DISTINCT
+            A.id                AS id,
+            A.username          AS username,
+            A.name              AS name,
+            A.password          AS password,
+            A.salt              AS salt,
+            A.state             AS state,
+            C.id                AS role_id,
+            C.role              AS role_role,
+            E.id                AS perm_id,
+            E.permission        AS perm_permission,
+            F.project_id        AS project_id
+        FROM t_manager A
+            LEFT JOIN t_manager_role B ON A.id=B.manager_id
+            LEFT JOIN t_role C ON B.role_id=C.id
+            LEFT JOIN t_role_permission D ON C.id=D.role_id
+            LEFT JOIN t_permission E ON D.permission_Id=E.id
+            LEFT JOIN t_project_user F ON A.id=F.user_id
+        WHERE username=#{username}
+    </select>
+</mapper>
