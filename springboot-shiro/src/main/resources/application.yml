@@ -61,7 +61,7 @@ logging:
 spring:
   profiles: dev
   datasource:
-      url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+      url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
       username: root
       password: ******
   thymeleaf:
@@ -74,7 +74,7 @@ xncoding:
   files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
   pics-path: E:/home/
   pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
-  posapi-url-prefix: http://123.207.66.156:9095
+  posapi-url-prefix: http://127.0.0.1:9095
 
 logging:
   level:
@@ -92,7 +92,7 @@ logging:
 spring:
   profiles: test
   datasource:
-      url: jdbc:mysql://123.207.66.156:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+      url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
       username: root
       password: ******
   thymeleaf:
@@ -106,7 +106,7 @@ xncoding:
   pics-path: /usr/share/nginx/html/pics/
   pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
 #  posapi-url-prefix: http://posapi.enzhico.net
-  posapi-url-prefix: http://123.207.66.156:9095
+  posapi-url-prefix: http://127.0.0.1:9095
 
 logging:
   level:

@@ -31,7 +31,7 @@
 
         var userName = 'user' + Math.floor((Math.random()*1000)+1);
 
-		var socket =  io.connect('http://123.207.66.156:9099?username=' + userName + '&password=123456');
+		var socket =  io.connect('http://127.0.0.1:9099?username=' + userName + '&password=123456');
 
 		socket.on('connect', function() {
 			output('<span class="connect-msg">Client has connected to the server!</span>');

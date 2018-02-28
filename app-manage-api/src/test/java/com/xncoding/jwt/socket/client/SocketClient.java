@@ -33,7 +33,7 @@ public class SocketClient {
         options.forceNew = true;
         options.query = "username=test1&password=test1&appid=com.xncoding.apay2";
         socket = IO.socket("http://localhost:9099/", options);
-//        socket = IO.socket("http://123.207.66.156:9099/", options);
+//        socket = IO.socket("http://127.0.0.1:9099/", options);
         socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
             @Override
             public void call(Object... args) {

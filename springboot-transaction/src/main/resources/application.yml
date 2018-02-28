@@ -15,7 +15,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://123.207.66.156:3306/test?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: ******
 
