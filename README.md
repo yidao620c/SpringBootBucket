@@ -15,30 +15,32 @@ Spring Boot 现在已经成为Java 开发领域的一颗璀璨明珠，它本身
 
 每个项目一篇博客文章的详细讲解，点击链接可以查看文章：
 
-* springboot-thymeleaf [集成Thymeleaf构建Web应用](https://www.xncoding.com/2017/07/01/spring/sb-thymeleaf.html)
-* springboot-mybatis [集成MyBatis](https://www.xncoding.com/2017/07/02/spring/sb-mybatis.html)
-* springboot-hibernate [集成Hibernate](https://www.xncoding.com/2017/07/03/spring/sb-hibernate.html)
-* springboot-mongodb [集成MongoDB](https://www.xncoding.com/2017/07/04/spring/sb-mongodb.html)
-* springboot-restful [实现RESTful接口](https://www.xncoding.com/2017/07/05/spring/sb-restful.html)
-* springboot-resttemplate [使用RestTemplate](https://www.xncoding.com/2017/07/06/spring/sb-restclient.html)
-* springboot-shiro [集成Shiro权限管理](https://www.xncoding.com/2017/07/07/spring/sb-shiro.html)
-* springboot-swagger2 [集成Swagger2](https://www.xncoding.com/2017/07/08/spring/sb-swagger2.html)
-* springboot-jwt [集成JWT实现接口权限认证](https://www.xncoding.com/2017/07/09/spring/sb-jwt.html)
-* springboot-multisource[多数据源配置](https://www.xncoding.com/2017/07/10/spring/sb-multisource.html)
-* springboot-schedule [定时任务](https://www.xncoding.com/2017/07/12/spring/sb-schedule.html)
-* springboot-websocket [使用WebScoket实时通信](https://www.xncoding.com/2017/07/15/spring/sb-websocket.html)
-* springboot-socketio [集成SocketIO实时通信](https://www.xncoding.com/2017/07/16/spring/sb-socketio.html)
-* springboot-async [异步线程池](https://www.xncoding.com/2017/07/20/spring/sb-async.html)
-* springboot-starter [教你自己写starter](https://www.xncoding.com/2017/07/22/spring/sb-starter.html)
-* springboot-aop [使用AOP](https://www.xncoding.com/2017/07/24/spring/sb-aop.html)
-* springboot-transaction [声明式事务](https://www.xncoding.com/2017/07/26/spring/sb-transaction.html)
-* springboot-cache [使用缓存](https://www.xncoding.com/2017/07/28/spring/sb-cache.html)
-* springboot-redis [Redis数据库](https://www.xncoding.com/2017/07/30/spring/sb-redis.html)
-* springboot-batch [批处理](https://www.xncoding.com/2017/08/01/spring/sb-batch.html)
-* springboot-rabbitmq [集成消息队列RabbitMQ](https://www.xncoding.com/2017/08/06/spring/sb-rabbitmq.html)
-* springboot-echarts [集成Echarts导出图片](https://www.xncoding.com/2017/08/19/spring/sb-echarts.html)
-* app-manage [一个完整的Web后台管理系统，组合使用了多种技术]
-* app-manage-api [同时实现了需要认证授权访问的RESTful API接口和WebSocket接口]
+项目名称                    | 文章地址
+----------------------------|------------------------------------------------------------------------------------------
+springboot-thymeleaf        | [集成Thymeleaf构建Web应用](https://www.xncoding.com/2017/07/01/spring/sb-thymeleaf.html)
+springboot-mybatis          | [集成MyBatis](https://www.xncoding.com/2017/07/02/spring/sb-mybatis.html)
+springboot-hibernate        | [集成Hibernate](https://www.xncoding.com/2017/07/03/spring/sb-hibernate.html)
+springboot-mongodb          | [集成MongoDB](https://www.xncoding.com/2017/07/04/spring/sb-mongodb.html)
+springboot-restful          | [实现RESTful接口](https://www.xncoding.com/2017/07/05/spring/sb-restful.html)
+springboot-resttemplate     | [使用RestTemplate](https://www.xncoding.com/2017/07/06/spring/sb-restclient.html)
+springboot-shiro            | [集成Shiro权限管理](https://www.xncoding.com/2017/07/07/spring/sb-shiro.html)
+springboot-swagger2         | [集成Swagger2](https://www.xncoding.com/2017/07/08/spring/sb-swagger2.html)
+springboot-jwt              | [集成JWT实现接口权限认证](https://www.xncoding.com/2017/07/09/spring/sb-jwt.html)
+springboot-multisource      | [多数据源配置](https://www.xncoding.com/2017/07/10/spring/sb-multisource.html)
+springboot-schedule         | [定时任务](https://www.xncoding.com/2017/07/12/spring/sb-schedule.html)
+springboot-websocket        | [使用WebScoket实时通信](https://www.xncoding.com/2017/07/15/spring/sb-websocket.html)
+springboot-socketio         | [集成SocketIO实时通信](https://www.xncoding.com/2017/07/16/spring/sb-socketio.html)
+springboot-async            | [异步线程池](https://www.xncoding.com/2017/07/20/spring/sb-async.html)
+springboot-starter          | [教你自己写starter](https://www.xncoding.com/2017/07/22/spring/sb-starter.html)
+springboot-aop              | [使用AOP](https://www.xncoding.com/2017/07/24/spring/sb-aop.html)
+springboot-transaction      | [声明式事务](https://www.xncoding.com/2017/07/26/spring/sb-transaction.html)
+springboot-cache            | [使用缓存](https://www.xncoding.com/2017/07/28/spring/sb-cache.html)
+springboot-redis            | [Redis数据库](https://www.xncoding.com/2017/07/30/spring/sb-redis.html)
+springboot-batch            | [批处理](https://www.xncoding.com/2017/08/01/spring/sb-batch.html)
+springboot-rabbitmq         | [集成消息队列RabbitMQ](https://www.xncoding.com/2017/08/06/spring/sb-rabbitmq.html)
+springboot-echarts          | [集成Echarts导出图片](https://www.xncoding.com/2017/08/19/spring/sb-echarts.html)
+app-manage                  | [一个完整的Web后台管理系统，组合使用了多种技术]
+app-manage-api              | [同时实现了需要认证授权访问的RESTful API接口和WebSocket接口]
 
 ## 环境
 
