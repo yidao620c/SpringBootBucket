@@ -1,0 +1,88 @@
+##########################################################
+##################  所有profile共有的配置  #################
+##########################################################
+
+###################  自定义配置  ###################
+xncoding:
+  muti-datasource-open: true #是否开启多数据源(true/false)
+
+###################  spring配置  ###################
+spring:
+  profiles:
+    active: dev
+
+###################  mybatis-plus配置  ###################
+mybatis-plus:
+  mapper-locations: classpath*:com/xncoding/pos/dao/repository/mapping/*.xml
+  typeAliasesPackage: >
+    com.xncoding.pos.common.dao.entity
+  global-config:
+    id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    db-column-underline: false
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+
+logging:
+  level:
+    org.springframework.web.servlet: ERROR
+
+---
+
+#####################################################################
+########################  开发环境profile  ##########################
+#####################################################################
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  thymeleaf:
+    cache: false
+
+#多数据源
+biz:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/biz?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      xncoding: DEBUG
+  file: E:/logs/app.log
+
+---
+
+#####################################################################
+########################  测试环境profile  ##########################
+#####################################################################
+
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  thymeleaf:
+    cache: false
+
+#多数据源
+biz:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/biz?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      xncoding: DEBUG
+  file: /var/logs/app.log
