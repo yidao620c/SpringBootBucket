@@ -54,7 +54,7 @@ app-manage-api              | [同时实现了需要认证授权访问的RESTful
 
 ## 运行
 
-每个子项目都可以单独运行，都是打包成jar包后，通过使用内置jetty容器执行，有3种方式运行。
+每个子项目都可以单独运行，都是打包成jar包后，通过使用内置jetty容器执行，有3种方式运行。:point_right:
 
 1. 在IDEA里面直接运行Application.java的main函数。
 2. 另一种方式是执行`mvn clean package`命令后传到linux服务器上面，通过命令`java -jar xxx.jar`方式运行
