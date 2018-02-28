@@ -1,0 +1,17 @@
+# 此为注释– 将被Git 忽略
+# /结尾表示是目录，忽略目录和目录下的所有件
+# /开头表示根目录，否则是.gitignore的相对目录
+# !开头表示反选
+.idea/
+target/
+*.iml
+*.ipr
+*.iws
+*.log
+.svn/
+.project
+rebel.xml
+.rebel-remote.xml.*
+swagger.json
+swagger.adoc
+

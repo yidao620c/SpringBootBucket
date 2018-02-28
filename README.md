@@ -13,7 +13,7 @@ Spring Boot 现在已经成为Java 开发领域的一颗璀璨明珠，它本身
 
 ## 子项目列表
 
-每个项目一篇博客文章的详细讲解，点击链接可以查看文章：
+每个项目一篇博客文章的详细讲解，点击链接可以查看文章 :point_right:
 
 项目名称                    | 文章地址
 ----------------------------|------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ springboot-batch            | [批处理](https://www.xncoding.com/2017/08/01/sp
 springboot-rabbitmq         | [集成消息队列RabbitMQ](https://www.xncoding.com/2017/08/06/spring/sb-rabbitmq.html)
 springboot-echarts          | [集成Echarts导出图片](https://www.xncoding.com/2017/08/19/spring/sb-echarts.html)
 app-manage                  | [一个完整的Web后台管理系统，组合使用了多种技术]
-app-manage-api              | [同时实现了需要认证授权访问的RESTful API接口和WebSocket接口]
+app-manage-api              | [实现需要认证授权访问的RESTful API接口和WebSocket接口]
 
 ## 环境
 
