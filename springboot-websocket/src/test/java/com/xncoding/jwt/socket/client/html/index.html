@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>广播式WebSocket</title>
+    <script src="js/sockjs.min.js"></script>
+    <script src="js/stomp.js"></script>
+    <script src="js/jquery-3.1.1.js"></script>
+</head>
+<body onload="disconnect()">
+<noscript><h2 style="color: #e80b0a;">Sorry，浏览器不支持WebSocket</h2></noscript>
+<div>
+    <div>
+        <button id="connect" onclick="connect();">连接</button>
+        <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
+    </div>
+
+    <div id="conversationDiv">
+        <label>输入你的名字</label><input type="text" id="name"/>
+        <button id="sendName" onclick="sendName();">发送</button>
+        <p id="response"></p>
+        <p id="callback"></p>
+    </div>
+</div>
+<script type="text/javascript">
+    var stompClient = null;
+
+    function setConnected(connected) {
+        document.getElementById("connect").disabled = connected;
+        document.getElementById("disconnect").disabled = !connected;
+        document.getElementById("conversationDiv").style.visibility = connected ? 'visible' : 'hidden';
+        $("#response").html();
+        $("#callback").html();
+    }
+
+    function connect() {
+        var socket = new SockJS('http://localhost:8092/simple');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            setConnected(true);
+            console.log('Connected:' + frame);
+            stompClient.subscribe('/topic/say', function (response) {
+                showResponse(JSON.parse(response.body).responseMessage);
+            });
+            // 另外再注册一下定时任务接受
+            stompClient.subscribe('/topic/callback', function (response) {
+                showCallback(response.body);
+            });
+        });
+    }
+
+    function disconnect() {
+        if (stompClient != null) {
+            stompClient.disconnect();
+        }
+        setConnected(false);
+        console.log('Disconnected');
+    }
+
+    function sendName() {
+        var name = $('#name').val();
+        console.log('name:' + name);
+        stompClient.send("/welcome", {}, JSON.stringify({'name': name}));
+    }
+
+    function showResponse(message) {
+        $("#response").html(message);
+    }
+    function showCallback(message) {
+        $("#callback").html(message);
+    }
+</script>
+</body>
+</html>

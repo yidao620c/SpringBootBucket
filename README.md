@@ -24,7 +24,7 @@ springboot-mongodb          | [集成MongoDB](https://www.xncoding.com/2017/07/0
 springboot-restful          | [实现RESTful接口](https://www.xncoding.com/2017/07/05/spring/sb-restful.html)
 springboot-resttemplate     | [使用RestTemplate](https://www.xncoding.com/2017/07/06/spring/sb-restclient.html)
 springboot-shiro            | [集成Shiro权限管理](https://www.xncoding.com/2017/07/07/spring/sb-shiro.html)
-springboot-swagger2         | [集成Swagger2](https://www.xncoding.com/2017/07/08/spring/sb-swagger2.html)
+springboot-swagger2         | [集成Swagger2自动生成API文档](https://www.xncoding.com/2017/07/08/spring/sb-swagger2.html)
 springboot-jwt              | [集成JWT实现接口权限认证](https://www.xncoding.com/2017/07/09/spring/sb-jwt.html)
 springboot-multisource      | [多数据源配置](https://www.xncoding.com/2017/07/10/spring/sb-multisource.html)
 springboot-schedule         | [定时任务](https://www.xncoding.com/2017/07/12/spring/sb-schedule.html)
