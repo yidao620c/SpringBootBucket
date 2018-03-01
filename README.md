@@ -57,7 +57,7 @@ app-manage-api              | [实现需要认证授权访问的RESTful API接�
 每个子项目都可以单独运行，都是打包成jar包后，通过使用内置jetty容器执行，有3种方式运行。:point_right:
 
 1. 在IDEA里面直接运行Application.java的main函数。
-2. 另一种方式是执行`mvn clean package`命令后传到linux服务器上面，通过命令`java -jar xxx.jar`方式运行
+2. 另一种方式是执行`mvn clean package`命令后传到linux服务器上面，通过命令`java -Xms64m -Xmx1024m -jar xxx.jar`方式运行
 3. 在linux服务器上面，配置好jdk、maven、git命令后，通过`git clone sb-xxx`拉取工程后，执行`./run.sh start test`命令来执行
 
 注：每个子项目有自己的README.md文件，告诉你该怎么初始化环境，比如准备好数据库SQL文件等。
@@ -66,7 +66,7 @@ app-manage-api              | [实现需要认证授权访问的RESTful API接�
 
 ``` xml
 <modelVersion>4.0.0</modelVersion>
-<artifactId>sb-cache</artifactId>
+<artifactId>springboot-cache</artifactId>
 <packaging>war</packaging>
 ```
 
