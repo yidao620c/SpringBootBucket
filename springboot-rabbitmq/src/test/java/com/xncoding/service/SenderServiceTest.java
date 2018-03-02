@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNull;
 
 
 /**
- * UserServiceTest
+ * SenderServiceTest
  *
  * @author XiongNeng
  * @version 1.0

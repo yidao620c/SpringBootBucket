@@ -13,7 +13,7 @@ Spring Boot 现在已经成为Java 开发领域的一颗璀璨明珠，它本身
 
 ## 子项目列表
 
-每个项目一篇博客文章的详细讲解，点击链接可以查看文章 :point_right:
+每个子项目会配有一篇博客文章的详细讲解 :point_right:
 
 项目名称                    | 文章地址
 ----------------------------|------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ springboot-transaction      | [声明式事务](https://www.xncoding.com/2017/07
 springboot-cache            | [使用缓存](https://www.xncoding.com/2017/07/28/spring/sb-cache.html)
 springboot-redis            | [Redis数据库](https://www.xncoding.com/2017/07/30/spring/sb-redis.html)
 springboot-batch            | [批处理](https://www.xncoding.com/2017/08/01/spring/sb-batch.html)
-springboot-rabbitmq         | [集成消息队列RabbitMQ](https://www.xncoding.com/2017/08/06/spring/sb-rabbitmq.html)
+springboot-rabbitmq         | [使用消息队列RabbitMQ](https://www.xncoding.com/2017/08/06/spring/sb-rabbitmq.html)
 springboot-echarts          | [集成Echarts导出图片](https://www.xncoding.com/2017/08/19/spring/sb-echarts.html)
 app-manage                  | [一个完整的Web后台管理系统，组合使用了多种技术]
 app-manage-api              | [实现需要认证授权访问的RESTful API接口和WebSocket接口]
@@ -75,6 +75,7 @@ app-manage-api              | [实现需要认证授权访问的RESTful API接�
 1. 集成OAuth2认证
 1. 集成QQ、微信、新浪微博第三方登录，配合shiro使用
 1. 集成网络爬虫框架
+1. 等SpringBoot 2稳定后全部升级至2
 
 ## 问题反馈
 
