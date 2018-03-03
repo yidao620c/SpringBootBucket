@@ -7,7 +7,6 @@ import javax.persistence.PersistenceContext;
 import com.xncoding.pos.dao.entity.Article;
 import com.xncoding.pos.dao.repository.IArticleDAO;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * ArticleDAO
@@ -16,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @version 1.0
  * @since 2018/3/2
  */
-@Transactional
 @Repository
 public class ArticleDAO implements IArticleDAO {
     @PersistenceContext
