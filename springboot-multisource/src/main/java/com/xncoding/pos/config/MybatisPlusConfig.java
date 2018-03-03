@@ -24,9 +24,7 @@ import java.util.HashMap;
  */
 @Configuration
 @EnableTransactionManagement(order = 2)
-@MapperScan(basePackages = {
-        "com.xncoding.pos.common.dao.repository",
-        "com.xncoding.pos.dao.repository"})
+@MapperScan(basePackages = {"com.xncoding.pos.common.dao.repository"})
 public class MybatisPlusConfig {
 
     @Autowired

@@ -13,7 +13,7 @@ spring:
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/xncoding/pos/dao/repository/mapping/*.xml
+  mapper-locations: classpath*:com/xncoding/pos/common/dao/repository/mapping/*.xml
   typeAliasesPackage: >
     com.xncoding.pos.common.dao.entity
   global-config:
@@ -41,8 +41,6 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
-  thymeleaf:
-    cache: false
 
 #多数据源
 biz:
@@ -70,8 +68,6 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
-  thymeleaf:
-    cache: false
 
 #多数据源
 biz:
