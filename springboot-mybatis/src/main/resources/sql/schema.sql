@@ -1,11 +1,8 @@
-# -------------------------------------以下业务表开始-------------------------------------------
 # CREATE DATABASE IF NOT EXISTS pos default charset utf8 COLLATE utf8_general_ci;
 # SET FOREIGN_KEY_CHECKS=0;
 # USE pos;
 
-# -------------------------------------以下用户管理表开始-------------------------------------------
-
--- 后台管理用户表
+-- 用户表
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
   `id`                        INT(11) PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
