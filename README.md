@@ -45,12 +45,12 @@ app-manage-api              | [实现需要认证授权访问的RESTful API接�
 ## 环境
 
 * maven latest
-* jdk1.8
-* spring boot 1.5.9 release
+* jdk 1.8
+* spring boot 1.5.10 release
 * intellij idea
-* mysql5.6
-* git
-* nginx
+* mysql 5.7
+* git 版本管理
+* nginx 反向代理
 
 ## 运行
 
