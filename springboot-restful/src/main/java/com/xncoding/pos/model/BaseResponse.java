@@ -1,7 +1,7 @@
 package com.xncoding.pos.model;
 
 /**
- * Controller的基础返回类
+ * 基础返回类
  *
  * @author XiongNeng
  * @version 1.0
