@@ -1,5 +1,10 @@
 ## SpringBoot 全家桶
 
+[![GitHub issues](https://img.shields.io/github/issues/yidao620c/SpringBootBucket.svg)](https://github.com/yidao620c/SpringBootBucket/issues)
+[![License][licensesvg]][license]
+[![Github downloads](https://img.shields.io/github/downloads/yidao620c/SpringBootBucket/total.svg)](https://github.com/yidao620c/SpringBootBucket/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/yidao620c/SpringBootBucket.svg)](https://github.com/yidao620c/SpringBootBucket/release)
+
 Spring Boot 现在已经成为Java 开发领域的一颗璀璨明珠，它本身是包容万象的，可以跟各种技术集成。
 
 本项目对目前Web开发中常用的各个技术，通过和SpringBoot的集成，并且对各种技术通过“一篇博客 + 一个可运行项目”的形式来详细说明。
@@ -88,4 +93,6 @@ app-manage-api              | [实现需要认证授权访问的RESTful API接�
 Copyright (c) 2018 [Xiong Neng](https://www.xncoding.com/)
 
 基于 MIT 协议发布: <http://www.opensource.org/licenses/MIT>
+
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://www.opensource.org/licenses/MIT)
 
