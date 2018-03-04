@@ -17,7 +17,7 @@ import static com.xncoding.echarts.common.util.ExportPngUtil.postOption;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
-public class CommonUtilTest {
+public class ApplicationTests {
 
     @Test
     public void isNewer() {
