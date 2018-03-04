@@ -90,9 +90,13 @@ app-manage-api              | [实现需要认证授权访问的RESTful API接�
 
 ## 许可证
 
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://www.opensource.org/licenses/MIT)
+
 Copyright (c) 2018 [Xiong Neng](https://www.xncoding.com/)
 
 基于 MIT 协议发布: <http://www.opensource.org/licenses/MIT>
 
-[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://www.opensource.org/licenses/MIT)
+
+[licensesvg]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[license]: http://www.opensource.org/licenses/MIT
 
