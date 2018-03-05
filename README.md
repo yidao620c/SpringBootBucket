@@ -44,8 +44,6 @@ springboot-redis            | [Redis数据库](https://www.xncoding.com/2017/07/
 springboot-batch            | [批处理](https://www.xncoding.com/2017/08/01/spring/sb-batch.html)
 springboot-rabbitmq         | [使用消息队列RabbitMQ](https://www.xncoding.com/2017/08/06/spring/sb-rabbitmq.html)
 springboot-echarts          | [集成Echarts导出图片](https://www.xncoding.com/2017/08/19/spring/sb-echarts.html)
-app-manage                  | [一个完整的Web后台管理系统，组合使用了多种技术]
-app-manage-api              | [实现需要认证授权访问的RESTful API接口和WebSocket接口]
 
 ## 环境
 
