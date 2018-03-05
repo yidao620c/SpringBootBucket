@@ -3,7 +3,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/yidao620c/SpringBootBucket.svg)](https://github.com/yidao620c/SpringBootBucket/issues)
 [![License][licensesvg]][license]
 [![Github downloads](https://img.shields.io/github/downloads/yidao620c/SpringBootBucket/total.svg)](https://github.com/yidao620c/SpringBootBucket/releases/latest)
-[![GitHub release](https://img.shields.io/github/release/yidao620c/SpringBootBucket.svg)](https://github.com/yidao620c/SpringBootBucket/release)
+[![GitHub release](https://img.shields.io/github/release/yidao620c/SpringBootBucket.svg)](https://github.com/yidao620c/SpringBootBucket/releases)
 
 Spring Boot 现在已经成为Java 开发领域的一颗璀璨明珠，它本身是包容万象的，可以跟各种技术集成。
 
