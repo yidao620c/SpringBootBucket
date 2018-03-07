@@ -71,3 +71,13 @@ CREATE TABLE `t_role_permission` (
 INSERT INTO `t_role_permission` VALUES (1, 1, 1, '2017-12-12 09:46:12', '2017-12-12 09:46:12');
 INSERT INTO `t_role_permission` VALUES (2, 1, 3, '2017-12-12 09:46:12', '2017-12-12 09:46:12');
 INSERT INTO `t_role_permission` VALUES (3, 2, 2, '2017-12-12 09:46:12', '2017-12-12 09:46:12');
+
+-- 项目用户关联表
+DROP TABLE IF EXISTS `t_project_user`;
+CREATE TABLE `t_project_user` (
+  `id`                        INT(11) PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+  `user_id`                   INT(11) NOT NULL COMMENT '用户ID',
+  `project_id`                INT(11) NOT NULL COMMENT '项目ID',
+  `created_time`              DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_time`              DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='项目用户关联表';
