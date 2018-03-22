@@ -3,10 +3,9 @@
     <meta charset="UTF-8"/>
     <title>广播式WebSocket</title>
     <script src="js/sockjs.min.js"></script>
-    <script src="js/stomp.js"></script>
     <script src="js/jquery-3.1.1.js"></script>
 </head>
-<body onload="disconnect()">
+<body>
 <noscript><h2 style="color: #e80b0a;">Sorry，浏览器不支持WebSocket</h2></noscript>
 <div>
     <div>
@@ -22,12 +21,50 @@
     </div>
 </div>
 <script type="text/javascript">
+    var curTryNum = 0;
+    var url = 'ws://localhost:8282/app';
     var ws;
     function connect() {
-        ws = new WebSocket('ws://localhost:8092/app');
-        ws.onmessage = function(data){
-            console.log("msg = " + JSON.stringify(data.data));
-            showResponse(data.data);
+        ws = new WebSocket(url);
+        /**
+         * 因为服务端在 300s 未传输数据时会主动关闭连接，所以，客户端需要定时发送数据保持连接。
+         */
+        var heartCheck = {
+            timeout: 50000, //50s
+            timeoutObj: null,
+            reset: function(){
+                clearInterval(this.timeoutObj);
+                this.start();
+            },
+            start: function(){
+                this.timeoutObj = setInterval(function(){
+                    if(ws.readyState === 1){
+                        ws.send("hb");
+                    }
+                }, this.timeout)
+            }
+        };
+        ws.onopen = function (evnt) {
+            console.log("onopen: ", evnt);
+            heartCheck.start();
+        };
+        ws.onmessage = function(message){
+            // 无论收到什么信息，说明当前连接正常，将心跳检测的计时器重置
+            heartCheck.reset();
+            console.log("client received a message.data: " + message.data);
+            if (message.data !== "hb_ok") {
+                // 不要将ping的答复信息输出
+                console.log("msg = " + JSON.stringify(message.data));
+                var response = JSON.parse(message.data);
+                console.log("message.data.method = " + response.method);
+                showResponse(JSON.stringify(response.result));
+            }
+        };
+        ws.onclose  = function (event) {
+            if (event.code !== 4500) {
+                //4500为服务端在打开多tab时主动关闭返回的编码
+                connect();
+            }
         };
         setConnected(true);
     }

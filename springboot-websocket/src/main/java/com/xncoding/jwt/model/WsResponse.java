@@ -7,14 +7,14 @@ package com.xncoding.jwt.model;
  * @version 1.0
  * @since 2018/3/22
  */
-public class WsResponse {
-    private Object result;
+public class WsResponse<T> {
+    private T result;
 
-    public Object getResult() {
+    public T getResult() {
         return result;
     }
 
-    public void setResult(Object result) {
+    public void setResult(T result) {
         this.result = result;
     }
 }

@@ -38,10 +38,10 @@ public class SocketHandler extends TextWebSocketHandler {
         // 我这儿并没有做处理，消息的封装格式一般有{from:xxxx,to:xxxxx,msg:xxxxx}，来自哪里，发送给谁，什么消息等等
         String msg = message.getPayload();
         logger.info("msg = " + msg);
-        WsParam wsParam = JacksonUtil.json2Bean(msg, new TypeReference<WsParam>(){});
+        WsParam<String> wsParam = JacksonUtil.json2Bean(msg, new TypeReference<WsParam<String>>(){});
         if ("list".equals(wsParam.getMethod())) {
             logger.info("call list method...");
-            WsResponse response = new WsResponse();
+            WsResponse<String> response = new WsResponse<>();
             response.setResult("hello list");
             sendMessageToUser(session, new TextMessage(JacksonUtil.bean2Json(response)));
         }
