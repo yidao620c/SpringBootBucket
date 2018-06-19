@@ -1,5 +1,6 @@
 package com.xncoding.webservice;
 
+import com.xncoding.webservice.client.CommonService_Service;
 import com.xncoding.webservice.model.User;
 import com.xncoding.webservice.service.ICommonService;
 import org.apache.cxf.endpoint.Client;
@@ -11,6 +12,9 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -74,7 +78,7 @@ public class ApplicationTests {
     }
 
     /**
-     * 方式2. 动态调用方式，返回对象User
+     * 方式3. 动态调用方式，返回对象User
      */
     @Test
     public void cl3() {
@@ -92,6 +96,17 @@ public class ApplicationTests {
         } catch (java.lang.Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    /**
+     * 方式4. 客户端代码生成方式
+     */
+    @Test
+    public void cl4() {
+        CommonService_Service c = new CommonService_Service();
+        com.xncoding.webservice.client.User user = c.getCommonServiceImplPort().getUser("Tom");
+        assertThat(user.getName(), is("Tom"));
     }
 
 }
