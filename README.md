@@ -33,6 +33,7 @@ springboot-swagger2         | [集成Swagger2自动生成API文档](https://www.
 springboot-jwt              | [集成JWT实现接口权限认证](https://www.xncoding.com/2017/07/09/spring/sb-jwt.html)
 springboot-multisource      | [多数据源配置](https://www.xncoding.com/2017/07/10/spring/sb-multisource.html)
 springboot-schedule         | [定时任务](https://www.xncoding.com/2017/07/12/spring/sb-schedule.html)
+springboot-cxf              | [cxf实现WebService](https://www.xncoding.com/2017/07/13/spring/sb-cxf.html)
 springboot-websocket        | [使用WebScoket实时通信](https://www.xncoding.com/2017/07/15/spring/sb-websocket.html)
 springboot-socketio         | [集成SocketIO实时通信](https://www.xncoding.com/2017/07/16/spring/sb-socketio.html)
 springboot-async            | [异步线程池](https://www.xncoding.com/2017/07/20/spring/sb-async.html)
