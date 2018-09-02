@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- scan 配置文件如果发生改变，将会被重新加载  scanPeriod 检测间隔时间-->
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <contextName>springboot-aop</contextName>
+    <contextName>logback</contextName>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <!-- 日志存储级别 -->
     <springProperty scope="context" name="rootlevel" source="logging.level.root" />
@@ -10,11 +10,11 @@
     <springProperty scope="context" name="logPath" source="logging.path" />
     <!-- 普通日志 -->
     <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/springboot-aop.log</file>
+        <file>${logPath}/info.log</file>
         <!-- 循环政策：基于时间创建日志文件 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志命名:单个文件大于128MB 按照时间+自增i 生成log文件 -->
-            <fileNamePattern>${logPath}/springboot-aop-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>128MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -34,11 +34,11 @@
     </appender>
     <!-- 错误日志 -->
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/springboot-aop-error.log</file>
+        <file>${logPath}/error.log</file>
         <!-- 循环政策：基于时间创建日志文件 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志命名:单个文件大于2MB 按照时间+自增i 生成log文件 -->
-            <fileNamePattern>${logPath}/springboot-aop-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>2MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
