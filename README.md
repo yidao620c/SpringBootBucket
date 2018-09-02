@@ -11,6 +11,8 @@ Spring Boot 现在已经成为Java 开发领域的一颗璀璨明珠，它本身
 
 每个子项目都会使用最小依赖，大家拿来即可使用，自己可以根据业务需求自由组合搭配不同的技术构建项目。
 
+该分支基于springboot1.5构建。
+
 ## 项目简介
 
 ![](https://xnstatic-1253397658.file.myqcloud.com/SpringBootBucket.png)
@@ -77,7 +79,7 @@ springboot-echarts          | [集成Echarts导出图片](https://www.xncoding.c
 ## 后续计划
 
 1. 集成OAuth2认证
-1. 集成QQ、微信、新浪微博第三方登录，配合shiro使用
+1. 集成QQ、微信、新浪微博第三方登录
 1. 集成网络爬虫框架
 1. 等SpringBoot 2稳定后全部升级至2
 
