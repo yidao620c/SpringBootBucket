@@ -20,8 +20,7 @@ spring:
 
 logging:
   level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: E:/logs/aop.log
+    root: INFO
+    com.xncoding: DEBUG
+  path: D:/logs/springboot-aop
 

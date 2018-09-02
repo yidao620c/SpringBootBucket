@@ -11,10 +11,11 @@ Spring Boot 现在已经成为Java 开发领域的一颗璀璨明珠，它本身
 
 每个子项目都会使用最小依赖，大家拿来即可使用，自己可以根据业务需求自由组合搭配不同的技术构建项目。
 
+加粗提醒：**主分支基于Spring Boot 2构建！**
+
 ## 项目简介
 
 ![](https://xnstatic-1253397658.file.myqcloud.com/SpringBootBucket.png)
-
 
 ## 子项目列表
 
@@ -48,13 +49,16 @@ springboot-echarts          | [集成Echarts导出图片](https://www.xncoding.c
 
 ## 环境
 
-* maven latest
-* jdk 1.8
-* spring boot 1.5.10 release
-* intellij idea
+* JDK 1.8
+* Maven latest
+* Spring Boot 2.0.4
+* Intellij IDEA
 * mysql 5.7
+* mongodb
 * git 版本管理
 * nginx 反向代理
+* redis 缓存
+* rabbitmq 消息队列
 
 ## 运行
 
@@ -77,9 +81,8 @@ springboot-echarts          | [集成Echarts导出图片](https://www.xncoding.c
 ## 后续计划
 
 1. 集成OAuth2认证
-1. 集成QQ、微信、新浪微博第三方登录，配合shiro使用
+1. 集成GitHub、微信等第三方登录
 1. 集成网络爬虫框架
-1. 等SpringBoot 2稳定后全部升级至2
 
 ## 问题反馈
 
