@@ -26,7 +26,7 @@ public class UserService {
      * @param id
      * @return
      */
-    @Cacheable(cacheNames = "user1", key = "#id")
+    @Cacheable(key = "#id")
     public User getById(int id) {
         logger.info("获取用户start...");
         return userMapper.selectById(id);
@@ -39,7 +39,7 @@ public class UserService {
      * @param id
      * @return
      */
-    @Cacheable(cacheNames = "user1", key = "#id", sync = true)
+    @Cacheable(key = "#id", sync = true)
     public User getById2(int id) {
         logger.info("获取用户start...");
         return userMapper.selectById(id);
@@ -55,7 +55,7 @@ public class UserService {
      * @param id
      * @return
      */
-    @Cacheable(cacheNames = "user1", keyGenerator = "myKeyGenerator")
+    @Cacheable(keyGenerator = "myKeyGenerator")
     public User queryUserById(int id) {
         logger.info("queryUserById,id={}", id);
         return userMapper.selectById(id);
@@ -66,9 +66,9 @@ public class UserService {
      *
      * @param user
      */
-    @CachePut(cacheNames = "user1", key = "#user.id")
+    @CachePut(key = "#user.id")
     public void createUser(User user) {
-        logger.info("创建用户start...");
+        logger.info("创建用户start..., user.id=" + user.getId());
         userMapper.insert(user);
     }
 
@@ -77,7 +77,7 @@ public class UserService {
      *
      * @param user
      */
-    @CachePut(cacheNames = "user1", key = "#user.id")
+    @CachePut(key = "#user.id")
     public void updateUser(User user) {
         logger.info("更新用户start...");
         userMapper.updateById(user);
@@ -86,7 +86,7 @@ public class UserService {
     /**
      * 对符合key条件的记录从缓存中book1移除
      */
-    @CacheEvict(cacheNames = "user1", key = "#id")
+    @CacheEvict(key = "#id")
     public void deleteById(int id) {
         logger.info("删除用户start...");
         userMapper.deleteById(id);
@@ -95,7 +95,7 @@ public class UserService {
     /**
      * allEntries = true: 清空user1里的所有缓存
      */
-    @CacheEvict(cacheNames="user1", allEntries=true)
+    @CacheEvict(allEntries=true)
     public void clearUser1All(){
         logger.info("clearAll");
     }

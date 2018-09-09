@@ -30,4 +30,4 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/app.log
+  file: D:/logs/app.log
