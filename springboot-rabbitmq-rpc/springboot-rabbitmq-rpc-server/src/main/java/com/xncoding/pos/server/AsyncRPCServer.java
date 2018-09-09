@@ -72,7 +72,7 @@ public class AsyncRPCServer {
             public void onSuccess(String result) {
                 amqpTemplate.convertAndSend(replyTo, (Object) result, m -> {
                     //https://stackoverflow.com/questions/42382307/messageproperties-setcorrelationidstring-is-not-working
-                    m.getMessageProperties().setCorrelationId(correlationId);
+                    m.getMessageProperties().setCorrelationId(new String(correlationId));
                     return m;
                 });
             }

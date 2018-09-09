@@ -3,7 +3,7 @@
 
 一般来讲，对于RESTful API都会有认证(Authentication)和授权(Authorization)过程，保证API的安全性。
 
-采用TOKEN认证，这种方式也是再HTTP头中，使用Authorization: Bearer <token>，使用最广泛的TOKEN是JWT，通过签名过的TOKEN。
+采用TOKEN认证，这种方式也是再HTTP头中，使用`Authorization: Bearer <token>`，使用最广泛的TOKEN是JWT，通过签名过的TOKEN。
 
 基于Shiro+JWT可实现Token认证方式
 
@@ -60,30 +60,8 @@ GET http://localhost:9095/api/v1/join?imei=imei
 
 ```
 Content-Type: application/json
-Authorization: 'Bearer ' + token
+Authorization: "上面拿到的token值"
 ```
-
-*Body参数*
-
-``` json
-{
-	"username": "admin",
-	"password": "12345678",
-	"appid": "111",
-	"imei": "imei"
-}
-```
-
-返回值：
-
-``` json
-{
-    "success": true,
-    "msg": "Login success",
-    "data": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBpZCI6IjExMSIsImltZWkiOiJpbWVpIiwiZXhwIjoxNTM2NDg3NTM1LCJ1c2VybmFtZSI6ImFkbWluIn0.uat7rvVLwC7bcM-jRs329RWdHIFC6P-YN7YdJrdRUHE"
-}
-```
-
 
 ## 许可证
 

@@ -40,6 +40,8 @@ import java.security.cert.X509Certificate;
  */
 @Configuration
 public class RestClientConfig {
+
+    private Logger log = LoggerFactory.getLogger(this.getClass());
     @Bean
     public RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();

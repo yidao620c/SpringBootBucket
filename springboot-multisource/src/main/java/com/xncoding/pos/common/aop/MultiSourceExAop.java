@@ -3,13 +3,14 @@ package com.xncoding.pos.common.aop;
 import com.xncoding.pos.common.annotion.DataSource;
 import com.xncoding.pos.common.mutidatesource.DSEnum;
 import com.xncoding.pos.common.mutidatesource.DataSourceContextHolder;
-import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
@@ -27,7 +28,7 @@ import java.lang.reflect.Method;
 @ConditionalOnProperty(prefix = "xncoding", name = "muti-datasource-open", havingValue = "true")
 public class MultiSourceExAop implements Ordered {
 
-    private Logger log = Logger.getLogger(this.getClass());
+    private Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Pointcut(value = "@annotation(com.xncoding.pos.common.annotion.DataSource)")
     private void cut() {
