@@ -9,7 +9,81 @@
 
 ## 测试
 
-启动应用后，先访问登录接口，使用参数用户名=admin/密码=12345678，拿到token后再访问其他接口。
+启动应用后
+
+1. 先访问登录接口/login
+
+*URL*
+
+```
+POST http://localhost:9095/login
+```
+
+*Header参数*
+
+```
+Content-Type: application/json
+```
+
+*Body参数*
+
+``` json
+{
+	"username": "admin",
+	"password": "12345678",
+	"appid": "111",
+	"imei": "imei"
+}
+```
+
+返回值：
+
+``` json
+{
+    "success": true,
+    "msg": "Login success",
+    "data": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBpZCI6IjExMSIsImltZWkiOiJpbWVpIiwiZXhwIjoxNTM2NDg3NTM1LCJ1c2VybmFtZSI6ImFkbWluIn0.uat7rvVLwC7bcM-jRs329RWdHIFC6P-YN7YdJrdRUHE"
+}
+```
+
+2. 使用token再去访问接口
+
+上面的"data"对应的一长串字符串就是返回的token值
+
+*URL*
+
+```
+GET http://localhost:9095/api/v1/join?imei=imei
+```
+
+*Header参数*
+
+```
+Content-Type: application/json
+Authorization: 'Bearer ' + token
+```
+
+*Body参数*
+
+``` json
+{
+	"username": "admin",
+	"password": "12345678",
+	"appid": "111",
+	"imei": "imei"
+}
+```
+
+返回值：
+
+``` json
+{
+    "success": true,
+    "msg": "Login success",
+    "data": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBpZCI6IjExMSIsImltZWkiOiJpbWVpIiwiZXhwIjoxNTM2NDg3NTM1LCJ1c2VybmFtZSI6ImFkbWluIn0.uat7rvVLwC7bcM-jRs329RWdHIFC6P-YN7YdJrdRUHE"
+}
+```
+
 
 ## 许可证
 

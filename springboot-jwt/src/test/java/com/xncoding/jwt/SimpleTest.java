@@ -1,8 +1,5 @@
 package com.xncoding.jwt;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.xncoding.jwt.api.model.VersionParam;
 import com.xncoding.jwt.shiro.ShiroKit;
 import org.junit.Test;
 
@@ -24,14 +21,5 @@ public class SimpleTest {
         String encodedPassword = ShiroKit.md5(password, username + salt);
         System.out.println("这个是保存进数据库的密码:" + encodedPassword);
         System.out.println("这个是保存进数据库的盐:" + salt);
-    }
-
-    @Test
-    public void testJackson() throws JsonProcessingException {
-        VersionParam req = new VersionParam();
-
-        String reqBody = new ObjectMapper().writeValueAsString(req);
-
-        System.out.println(reqBody);
     }
 }

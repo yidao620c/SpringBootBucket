@@ -20,21 +20,21 @@ public class ExceptionController {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(ShiroException.class)
     public BaseResponse handle401(ShiroException e) {
-        return new BaseResponse(false, "shiro的异常", null);
+        return new BaseResponse<>(false, "shiro的异常", null);
     }
 
     // 捕捉UnauthorizedException
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(UnauthorizedException.class)
     public BaseResponse handle401() {
-        return new BaseResponse(false, "UnauthorizedException", null);
+        return new BaseResponse<>(false, "UnauthorizedException", null);
     }
 
     // 捕捉其他所有异常
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public BaseResponse globalException(HttpServletRequest request, Throwable ex) {
-        return new BaseResponse(false, "其他异常", null);
+        return new BaseResponse<>(false, "其他异常", null);
     }
 
     private HttpStatus getStatus(HttpServletRequest request) {
