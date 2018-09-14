@@ -19,11 +19,16 @@
 
 尝试采用页面js轮询方式，1秒轮询一次，有数据的时候就导出图片。结果导出图片太大了，不知道怎么回事，另外轮询方案始终不是很好。
 
-最后还是老老实实使用websocket方案，自己手动打开这个网页吧。<http://localhost:9075/>
+最后还是老老实实使用websocket方案
 
 ## JMH性能测试
 
 在包`com.xncoding.benchmark`中，有几个基准测试，并且可将测试结果利用echarts图片导出到图片。
+
+## 测试步骤
+
+1. 启动应用后，用浏览器打开首页：<http://localhost:9075/>
+2. 然后再执行图片生成测试方法`com.xncoding.echarts.common.util.ApplicationTests.testOption()`
 
 ## 许可证
 

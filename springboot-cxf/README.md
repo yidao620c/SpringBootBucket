@@ -46,6 +46,10 @@ com.xncoding.webservice.client.User user = c.getCommonServiceImplPort().getUser(
 assertThat(user.getName(), is("Tom"));
 ```
 
+## 测试步骤
+
+先启动springboot项目，然后执行`com.xncoding.webservice.ApplicationTests`单元测试类。
+
 ## 许可证
 
 Copyright (c) 2018 Xiong Neng
