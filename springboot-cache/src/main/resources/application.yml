@@ -10,9 +10,9 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://123.207.66.156:3306/test?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
-    password: 123456
+    password: _EnZhi123
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
@@ -42,10 +42,22 @@ spring:
   profiles: dev
   cache:
     type: REDIS
+    redis:
+      cache-null-values: false
+      time-to-live: 600000ms
+      use-key-prefix: true
+    cache-names: userCache,allUsersCache
   redis:
     host: 123.207.66.156
     port: 6379
     database: 0
+    lettuce:
+      shutdown-timeout: 200ms
+      pool:
+        max-active: 7
+        max-idle: 7
+        min-idle: 2
+        max-wait: -1ms
 
 logging:
   level:

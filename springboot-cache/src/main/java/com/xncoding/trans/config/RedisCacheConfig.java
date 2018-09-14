@@ -11,11 +11,14 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -37,72 +40,37 @@ import java.util.Map;
  */
 @Configuration
 @EnableCaching
-public class RedisCacheConfig extends CachingConfigurerSupport {
+public class RedisCacheConfig {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Value("${spring.redis.host}")
-    private String host;
-
-    @Value("${spring.redis.port}")
-    private String port;
+    @Autowired
+    private Environment env;
 
     @Bean
-    public RedisStandaloneConfiguration getRedisClient() {
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(host, Integer.parseInt(port));
-        return redisStandaloneConfiguration;
+    public LettuceConnectionFactory redisConnectionFactory() {
+        RedisStandaloneConfiguration redisConf = new RedisStandaloneConfiguration();
+        redisConf.setHostName(env.getProperty("spring.redis.host"));
+        redisConf.setPort(Integer.parseInt(env.getProperty("spring.redis.port")));
+        redisConf.setPassword(RedisPassword.of(env.getProperty("spring.redis.password")));
+        return new LettuceConnectionFactory(redisConf);
     }
 
     @Bean
-    public JedisConnectionFactory redisConnectionFactory(RedisStandaloneConfiguration RedisStandaloneConfiguration) {
-        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(RedisStandaloneConfiguration);
-        return jedisConnectionFactory;
+    public RedisCacheConfiguration cacheConfiguration() {
+        RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig()
+                .entryTtl(Duration.ofSeconds(600))
+                .disableCachingNullValues();
+        return cacheConfig;
     }
 
     @Bean
-    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory cf) {
-        RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
-        redisTemplate.setConnectionFactory(cf);
-        return redisTemplate;
+    public RedisCacheManager cacheManager() {
+        RedisCacheManager rcm = RedisCacheManager.builder(redisConnectionFactory())
+                .cacheDefaults(cacheConfiguration())
+                .transactionAware()
+                .build();
+        return rcm;
     }
-
-    @Bean
-    public RedisCacheConfiguration redisCacheConfiguration() {
-        return RedisCacheConfiguration
-                .defaultCacheConfig()
-                .serializeKeysWith(
-                        RedisSerializationContext
-                                .SerializationPair
-                                .fromSerializer(new StringRedisSerializer()))
-                .serializeValuesWith(
-                        RedisSerializationContext
-                                .SerializationPair
-                                .fromSerializer(new GenericJackson2JsonRedisSerializer()))
-                .entryTtl(Duration.ofSeconds(600L));
-    }
-
-    @Bean
-    public CacheManager cacheManager(RedisConnectionFactory cf) {
-        //RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(cf);
-        //RedisCacheManager cacheManager = new RedisCacheManager(redisCacheWriter, RedisCacheConfiguration.defaultCacheConfig());
-        RedisCacheManager cm = RedisCacheManager.builder(cf).cacheDefaults(redisCacheConfiguration()).build();
-        return cm;
-    }
-
-    // @Bean
-    // public KeyGenerator keyGenerator() {
-    //     return new KeyGenerator() {
-    //         @Override
-    //         public Object generate(Object o, Method method, Object... objects) {
-    //             StringBuilder sb = new StringBuilder();
-    //             sb.append(o.getClass().getName());
-    //             sb.append(method.getName());
-    //             for (Object obj : objects) {
-    //                 sb.append(obj.toString());
-    //             }
-    //             return sb.toString();
-    //         }
-    //     };
-    // }
 
     /**
      * 自定义缓存key的生成类实现
