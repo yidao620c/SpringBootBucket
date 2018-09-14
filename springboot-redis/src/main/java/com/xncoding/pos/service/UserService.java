@@ -7,11 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 @Service
+@Transactional
 public class UserService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
