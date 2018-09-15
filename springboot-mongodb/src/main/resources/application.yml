@@ -23,23 +23,4 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/app.log
-
----
-
-#####################################################################
-########################  测试环境profile  ##########################
-#####################################################################
-
-spring:
-  profiles: test
-  data:
-    mongodb:
-      uri: mongodb://xiongneng:123456@localhost:27017/test
-
-logging:
-  level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: /var/logs/app.log
+  file: D:/logs/app.log
