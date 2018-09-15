@@ -15,7 +15,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
 
@@ -51,5 +51,5 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/trans.log
+  file: D:/logs/trans.log
 
