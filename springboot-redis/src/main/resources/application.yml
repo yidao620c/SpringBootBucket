@@ -7,7 +7,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
 
@@ -37,13 +37,6 @@ logging:
 #####################################################################
 spring:
   profiles: dev
-  cache:
-    type: REDIS
-    redis:
-      cache-null-values: false
-      time-to-live: 600000ms
-      use-key-prefix: true
-    cache-names: userCache,allUsersCache
   redis:
     host: 127.0.0.1
     port: 6379
@@ -61,5 +54,5 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/app.log
+  file: D:/logs/app.log
 
