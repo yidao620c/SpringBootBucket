@@ -27,20 +27,4 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/app-api.log
-
----
-
-#####################################################################
-########################  测试环境profile  ##########################
-#####################################################################
-
-spring:
-  profiles: test
-
-logging:
-  level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: /var/logs/app-api.log
+  file: D:/logs/app-api.log

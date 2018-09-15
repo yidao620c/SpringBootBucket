@@ -51,7 +51,7 @@ public class Swagger2MarkupTest {
      *
      * 执行完成后生成PDF文件方法：
      *
-     * 首先在`build/swagger.adoc`的顶部加入：
+     * 首先在`swagger/swagger.adoc`的顶部加入：
     ```
     :toclevels: 3
     :numbered:
