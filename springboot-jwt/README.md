@@ -1,3 +1,9 @@
+# Table of Contents
+
+  * [简介](#简介)
+  * [测试](#测试)
+  * [许可证](#许可证)
+
 
 ## 简介
 
@@ -30,10 +36,19 @@ Content-Type: application/json
 ``` json
 {
 	"username": "admin",
-	"password": "12345678",
-	"appid": "111",
-	"imei": "imei"
+	"password": "12345678"
 }
+```
+
+可使用postman或者curl方式，本人更愿意使用curl方式：
+
+```
+ curl -X POST http://localhost:9095/login -H 'Content-Type: application/json' -d '
+{
+    "username": "admin",
+    "password": "12345678"
+}
+'
 ```
 
 返回值：
@@ -61,6 +76,12 @@ GET http://localhost:9095/api/v1/join?imei=imei
 ```
 Content-Type: application/json
 Authorization: "上面拿到的token值"
+```
+
+curl访问语法：
+
+```
+curl -X GET http://localhost:9095/api/v1/join?imei=imei -H 'Content-Type: application/json' -H 'Authorization: 上面拿到的token值'
 ```
 
 ## 许可证

@@ -1,11 +1,9 @@
-package com.xncoding.jwt.dao.entity;
+package com.xncoding.jwt.model;
 
-import com.xncoding.jwt.common.constant.DictMap;
-import com.xncoding.jwt.common.dao.entity.Manager;
+import com.xncoding.jwt.dao.domain.Manager;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Description: 后台运维管理员信息
@@ -91,7 +89,4 @@ public class ManagerInfo extends Manager implements Serializable {
         this.pnames = pnames;
     }
 
-    public void buildTable() {
-        stateStr = DictMap.value(DictMap.KEY_USER_STATUS, getState());
-    }
 }

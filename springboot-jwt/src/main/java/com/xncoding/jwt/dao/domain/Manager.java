@@ -1,4 +1,4 @@
-package com.xncoding.jwt.common.dao.entity;
+package com.xncoding.jwt.dao.domain;
 
 import java.io.Serializable;
 import java.util.Date;

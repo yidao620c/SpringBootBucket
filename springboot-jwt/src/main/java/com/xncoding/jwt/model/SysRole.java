@@ -1,7 +1,7 @@
-package com.xncoding.jwt.dao.entity;
+package com.xncoding.jwt.model;
 
-import com.xncoding.jwt.common.dao.entity.Permission;
-import com.xncoding.jwt.common.dao.entity.Role;
+import com.xncoding.jwt.dao.domain.Permission;
+import com.xncoding.jwt.dao.domain.Role;
 
 import java.io.Serializable;
 import java.util.List;

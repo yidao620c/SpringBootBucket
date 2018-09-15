@@ -16,14 +16,6 @@ public class LoginParam {
      * 密码
      */
     private String password;
-    /**
-     * Application ID
-     */
-    private String appid;
-    /**
-     * IMEI码
-     */
-    private String imei;
 
     public String getUsername() {
         return username;
@@ -39,21 +31,5 @@ public class LoginParam {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getAppid() {
-        return appid;
-    }
-
-    public void setAppid(String appid) {
-        this.appid = appid;
-    }
-
-    public String getImei() {
-        return imei;
-    }
-
-    public void setImei(String imei) {
-        this.imei = imei;
     }
 }

@@ -27,20 +27,5 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/pos-api.log
+  file: D:/logs/pos-api.log
 
----
-
-#####################################################################
-########################  测试环境profile  ##########################
-#####################################################################
-
-spring:
-  profiles: test
-
-logging:
-  level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: /var/logs/pos-api.log

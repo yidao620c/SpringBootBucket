@@ -22,8 +22,7 @@ public class PublicController {
      */
     @RequestMapping(value = "/join", method = RequestMethod.GET)
     @RequiresAuthentication
-    public BaseResponse join(@RequestHeader("Authorization") String token,
-                             @RequestParam("imei") String imei) {
+    public BaseResponse join(@RequestParam("imei") String imei) {
         _logger.info("入网查询接口 start... imei=" + imei);
         BaseResponse result = new BaseResponse();
         result.setSuccess(true);

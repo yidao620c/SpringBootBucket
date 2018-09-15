@@ -1,16 +1,16 @@
-package com.xncoding.jwt.common.dao.entity;
+package com.xncoding.jwt.dao.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 角色权限关联表
+ * 用户角色关联表
  *
  * @author 熊能
  * @version 1.0
  * @since 2018/01/02
  */
-public class RolePermission {
+public class ManagerRole {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,13 +19,13 @@ public class RolePermission {
      */
     private Integer id;
     /**
+     * 管理用户ID
+     */
+    private Integer managerId;
+    /**
      * 角色ID
      */
     private Integer roleId;
-    /**
-     * 权限ID
-     */
-    private Integer permissionId;
     /**
      * 创建时间
      */
@@ -54,6 +54,24 @@ public class RolePermission {
     }
 
     /**
+     * 获取 管理用户ID.
+     *
+     * @return 管理用户ID.
+     */
+    public Integer getManagerId() {
+        return managerId;
+    }
+
+    /**
+     * 设置 管理用户ID.
+     *
+     * @param managerId 管理用户ID.
+     */
+    public void setManagerId(Integer managerId) {
+        this.managerId = managerId;
+    }
+
+    /**
      * 获取 角色ID.
      *
      * @return 角色ID.
@@ -69,24 +87,6 @@ public class RolePermission {
      */
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
-    }
-
-    /**
-     * 获取 权限ID.
-     *
-     * @return 权限ID.
-     */
-    public Integer getPermissionId() {
-        return permissionId;
-    }
-
-    /**
-     * 设置 权限ID.
-     *
-     * @param permissionId 权限ID.
-     */
-    public void setPermissionId(Integer permissionId) {
-        this.permissionId = permissionId;
     }
 
     /**

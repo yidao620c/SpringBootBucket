@@ -1,16 +1,16 @@
-package com.xncoding.jwt.common.dao.entity;
+package com.xncoding.jwt.dao.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 用户角色关联表
+ * 角色表
  *
  * @author 熊能
  * @version 1.0
  * @since 2018/01/02
  */
-public class ManagerRole {
+public class Role {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,13 +19,13 @@ public class ManagerRole {
      */
     private Integer id;
     /**
-     * 管理用户ID
+     * 角色名称
      */
-    private Integer managerId;
+    private String role;
     /**
-     * 角色ID
+     * 角色说明
      */
-    private Integer roleId;
+    private String description;
     /**
      * 创建时间
      */
@@ -54,39 +54,39 @@ public class ManagerRole {
     }
 
     /**
-     * 获取 管理用户ID.
+     * 获取 角色名称.
      *
-     * @return 管理用户ID.
+     * @return 角色名称.
      */
-    public Integer getManagerId() {
-        return managerId;
+    public String getRole() {
+        return role;
     }
 
     /**
-     * 设置 管理用户ID.
+     * 设置 角色名称.
      *
-     * @param managerId 管理用户ID.
+     * @param role 角色名称.
      */
-    public void setManagerId(Integer managerId) {
-        this.managerId = managerId;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     /**
-     * 获取 角色ID.
+     * 获取 角色说明.
      *
-     * @return 角色ID.
+     * @return 角色说明.
      */
-    public Integer getRoleId() {
-        return roleId;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * 设置 角色ID.
+     * 设置 角色说明.
      *
-     * @param roleId 角色ID.
+     * @param description 角色说明.
      */
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**

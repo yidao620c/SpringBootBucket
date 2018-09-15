@@ -42,7 +42,7 @@
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>3.3.0</version>
+            <version>3.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -85,6 +85,7 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
+
     </dependencies>
 
     <build>

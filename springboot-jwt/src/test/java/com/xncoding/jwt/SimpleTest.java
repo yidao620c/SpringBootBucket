@@ -1,5 +1,6 @@
 package com.xncoding.jwt;
 
+import com.xncoding.jwt.common.util.JWTUtil;
 import com.xncoding.jwt.shiro.ShiroKit;
 import org.junit.Test;
 
@@ -12,14 +13,20 @@ import org.junit.Test;
  */
 public class SimpleTest {
     @Test
-    public void testMd5() {
-        //盐（用户名+随机数）
+    public void testJwt() {
         String username = "admin";
+        //随机数
         String salt = ShiroKit.getRandomSalt(16);
         //原密码
         String password = "12345678";
         String encodedPassword = ShiroKit.md5(password, username + salt);
-        System.out.println("这个是保存进数据库的密码:" + encodedPassword);
-        System.out.println("这个是保存进数据库的盐:" + salt);
+        System.out.println("这个是保存进数据库的随机数:" + salt);
+        System.out.println("这个是保存进数据库的加密后密码:" + encodedPassword);
+        // 生成token
+        String token = JWTUtil.sign(username, encodedPassword);
+        System.out.println("token=" + token);
+        // 验证token
+        JWTUtil.verify(token, username, encodedPassword);
     }
+
 }

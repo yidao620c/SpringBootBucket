@@ -1,16 +1,16 @@
-package com.xncoding.jwt.common.dao.entity;
+package com.xncoding.jwt.dao.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 权限表
+ * 角色权限关联表
  *
  * @author 熊能
  * @version 1.0
  * @since 2018/01/02
  */
-public class Permission {
+public class RolePermission {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,13 +19,13 @@ public class Permission {
      */
     private Integer id;
     /**
-     * 权限名称
+     * 角色ID
      */
-    private String permission;
+    private Integer roleId;
     /**
-     * 权限说明
+     * 权限ID
      */
-    private String description;
+    private Integer permissionId;
     /**
      * 创建时间
      */
@@ -54,39 +54,39 @@ public class Permission {
     }
 
     /**
-     * 获取 权限名称.
+     * 获取 角色ID.
      *
-     * @return 权限名称.
+     * @return 角色ID.
      */
-    public String getPermission() {
-        return permission;
+    public Integer getRoleId() {
+        return roleId;
     }
 
     /**
-     * 设置 权限名称.
+     * 设置 角色ID.
      *
-     * @param permission 权限名称.
+     * @param roleId 角色ID.
      */
-    public void setPermission(String permission) {
-        this.permission = permission;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     /**
-     * 获取 权限说明.
+     * 获取 权限ID.
      *
-     * @return 权限说明.
+     * @return 权限ID.
      */
-    public String getDescription() {
-        return description;
+    public Integer getPermissionId() {
+        return permissionId;
     }
 
     /**
-     * 设置 权限说明.
+     * 设置 权限ID.
      *
-     * @param description 权限说明.
+     * @param permissionId 权限ID.
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPermissionId(Integer permissionId) {
+        this.permissionId = permissionId;
     }
 
     /**

@@ -1,16 +1,16 @@
-package com.xncoding.jwt.common.dao.entity;
+package com.xncoding.jwt.dao.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 角色表
+ * 权限表
  *
  * @author 熊能
  * @version 1.0
  * @since 2018/01/02
  */
-public class Role {
+public class Permission {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,11 +19,11 @@ public class Role {
      */
     private Integer id;
     /**
-     * 角色名称
+     * 权限名称
      */
-    private String role;
+    private String permission;
     /**
-     * 角色说明
+     * 权限说明
      */
     private String description;
     /**
@@ -54,36 +54,36 @@ public class Role {
     }
 
     /**
-     * 获取 角色名称.
+     * 获取 权限名称.
      *
-     * @return 角色名称.
+     * @return 权限名称.
      */
-    public String getRole() {
-        return role;
+    public String getPermission() {
+        return permission;
     }
 
     /**
-     * 设置 角色名称.
+     * 设置 权限名称.
      *
-     * @param role 角色名称.
+     * @param permission 权限名称.
      */
-    public void setRole(String role) {
-        this.role = role;
+    public void setPermission(String permission) {
+        this.permission = permission;
     }
 
     /**
-     * 获取 角色说明.
+     * 获取 权限说明.
      *
-     * @return 角色说明.
+     * @return 权限说明.
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * 设置 角色说明.
+     * 设置 权限说明.
      *
-     * @param description 角色说明.
+     * @param description 权限说明.
      */
     public void setDescription(String description) {
         this.description = description;

@@ -1,9 +1,9 @@
 package com.xncoding.jwt.shiro;
 
-import com.xncoding.jwt.common.dao.entity.Permission;
+import com.xncoding.jwt.dao.domain.Permission;
 import com.xncoding.jwt.common.util.JWTUtil;
-import com.xncoding.jwt.dao.entity.ManagerInfo;
-import com.xncoding.jwt.dao.entity.SysRole;
+import com.xncoding.jwt.model.ManagerInfo;
+import com.xncoding.jwt.model.SysRole;
 import com.xncoding.jwt.service.ManagerInfoService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
