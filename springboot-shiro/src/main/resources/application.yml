@@ -23,10 +23,6 @@ spring:
   mvc:
     view:
       prefix: /templates
-  http:
-    multipart:
-      max-request-size: 100MB #最大请求大小
-      max-file-size: 100MB #最大文件大小
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
@@ -45,10 +41,6 @@ mybatis-plus:
     lazyLoadingEnabled: true #延时加载的开关
     multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
 
-###################  spring security配置  ###################
-security:
-  ignored: /static/**
-
 logging:
   level:
     org.springframework.web.servlet: ERROR
@@ -61,7 +53,7 @@ logging:
 spring:
   profiles: dev
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+      url: jdbc:mysql://127.0.0.1:3306/pos?serverTimezone=UTC&useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
       username: root
       password: 123456
   thymeleaf:
@@ -81,36 +73,4 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/app-manage.log
-
----
-
-#####################################################################
-########################  测试环境profile  ##########################
-#####################################################################
-
-spring:
-  profiles: test
-  datasource:
-      url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
-      username: root
-      password: 123456
-  thymeleaf:
-    cache: false
-
-###################  自定义项目配置 ###################
-xncoding:
-  excel-path: /var/data/
-  files-path: /usr/share/nginx/html/files/
-  files-url-prefix: https://show.xncoding.net/files/ # 文件访问URL前缀
-  pics-path: /usr/share/nginx/html/pics/
-  pics-url-prefix: https://show.xncoding.net/pics/ # 图片访问URL前缀
-#  posapi-url-prefix: http://posapi.enzhico.net
-  posapi-url-prefix: http://127.0.0.1:9095
-
-logging:
-  level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: /var/logs/app-manage.log
+  file: D:/logs/app-manage.log

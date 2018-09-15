@@ -26,9 +26,6 @@
         <mysql-connector.version>8.0.7-dmr</mysql-connector.version>
         <mybatis-plus.version>2.1.8</mybatis-plus.version>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-        <!--以下两项需要如果不配置，解析themleaft 会有问题-->
-        <thymeleaf.version>3.0.7.RELEASE</thymeleaf.version>
-        <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
     </properties>
 
     <dependencies>

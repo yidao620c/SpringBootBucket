@@ -26,7 +26,7 @@ INSERT INTO `t_manager` VALUES (2,'aix','张三','2412d3972722eb186f69a8f4011fbd
 DROP TABLE IF EXISTS `t_role`;
 CREATE TABLE `t_role` (
   `id`                        INT(11) PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
-  `role`                      VARCHAR(16) DEFAULT '' COMMENT '角色名称',
+  `role`                      VARCHAR(64) DEFAULT '' COMMENT '角色名称',
   `description`               VARCHAR(255) DEFAULT '' COMMENT '角色说明',
   `created_time`              DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_time`              DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
@@ -50,7 +50,7 @@ INSERT INTO `t_manager_role` VALUES (2, 2, 2, '2017-05-05 00:00:00','2017-05-05 
 DROP TABLE IF EXISTS `t_permission`;
 CREATE TABLE `t_permission` (
   `id`                        INT(11) PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
-  `permission`                VARCHAR(16) DEFAULT '' COMMENT '权限名称',
+  `permission`                VARCHAR(64) DEFAULT '' COMMENT '权限名称',
   `description`               VARCHAR(255) DEFAULT '' COMMENT '权限说明',
   `created_time`              DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_time`              DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'

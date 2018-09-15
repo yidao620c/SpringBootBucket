@@ -28,26 +28,23 @@
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a th:href="@{/password}">修改密码</a></li>
+                            <li><a th:href="@{/}">修改密码</a></li>
                             <li><a href="javascript:void(0);" onclick="logout()">安全退出</a></li>
                         </ul>
                     </div>
                     <div class="logo-element"></div>
                 </li>
                 <li shiro:hasRole="admin">
-                    <a id="plink" class="J_menuItem" th:href="@{/project/index.html}"><span class="nav-label">项目管理</span></a>
-                </li>
-                <li shiro:hasRole="admin" th:if="${session.projectNum} and (${session.projectNum} gt 0)">
-                    <a class="J_menuItem" th:href="@{/user/index.html}"><span class="nav-label">用户管理</span></a>
+                    <a class="J_menuItem" th:href="@{/}"><span class="nav-label">用户管理</span></a>
                 </li>
                 <li shiro:lacksRole="admin">`
-                    <a class="J_menuItem" th:href="@{/device/index.html}"><span class="nav-label">机具入网管理</span></a>
+                    <a class="J_menuItem" th:href="@{/}"><span class="nav-label">机具入网管理</span></a>
                 </li>
                 <li shiro:lacksRole="admin">
-                    <a class="J_menuItem" th:href="@{/monitor/index.html}"><span class="nav-label">机具状态监控</span></a>
+                    <a class="J_menuItem" th:href="@{/}"><span class="nav-label">机具状态监控</span></a>
                 </li>
                 <li shiro:lacksRole="admin">
-                    <a class="J_menuItem" th:href="@{/app/index.html}" data-index="0">App管理</a>
+                    <a class="J_menuItem" th:href="@{/}" data-index="0">App管理</a>
                 </li>
             </ul>
         </div>
