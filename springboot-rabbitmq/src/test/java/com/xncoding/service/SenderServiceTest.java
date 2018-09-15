@@ -1,6 +1,6 @@
 package com.xncoding.service;
 
-import com.xncoding.pos.Application;
+import com.xncoding.Application;
 import com.xncoding.pos.service.SenderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
