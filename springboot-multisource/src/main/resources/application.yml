@@ -38,14 +38,14 @@ logging:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/pos?serverTimezone=UTC&useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
 
 #多数据源
 biz:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/biz?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/biz?serverTimezone=UTC&useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
 
@@ -54,31 +54,5 @@ logging:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: E:/logs/app.log
+  file: D:/logs/app.log
 
----
-
-#####################################################################
-########################  测试环境profile  ##########################
-#####################################################################
-
-spring:
-  profiles: test
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/pos?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
-    username: root
-    password: 123456
-
-#多数据源
-biz:
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/biz?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8
-    username: root
-    password: 123456
-
-logging:
-  level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: /var/logs/app.log

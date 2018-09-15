@@ -1,4 +1,4 @@
-# -------------------------------------以下是pos业务库开始-------------------------------------------
+-- -------------------------------------以下是pos业务库开始-------------------------------------------
 CREATE DATABASE IF NOT EXISTS pos default charset utf8 COLLATE utf8_general_ci;
 SET FOREIGN_KEY_CHECKS=0;
 USE pos;
@@ -18,13 +18,13 @@ CREATE TABLE `t_user` (
   `updated_time`              DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='后台管理用户表';
 
-# 下面是pos数据库中的插入数据
+-- 下面是pos数据库中的插入数据
 INSERT INTO `t_user` VALUES (1,'admin','系统管理员','123456','www', '17890908889', '系统管理员', 1, '2017-12-12 09:46:12', '2017-12-12 09:46:12');
 INSERT INTO `t_user` VALUES (2,'aix','张三','123456','eee', '17859569358', '', 1, '2017-12-12 09:46:12', '2017-12-12 09:46:12');
 
 
-# -------------------------------------以下biz业务库开始-------------------------------------------
-CREATE DATABASE IF NOT EXISTS pos default charset utf8 COLLATE utf8_general_ci;
+-- -------------------------------------以下biz业务库开始-------------------------------------------
+CREATE DATABASE IF NOT EXISTS biz default charset utf8 COLLATE utf8_general_ci;
 SET FOREIGN_KEY_CHECKS=0;
 USE biz;
 
@@ -44,6 +44,6 @@ CREATE TABLE `t_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='后台管理用户表';
 
 
-# 下面是biz数据库中的插入数据
+-- 下面是biz数据库中的插入数据
 INSERT INTO `t_user` VALUES (1,'admin1','系统管理员','123456','www', '17890908889', '系统管理员', 1, '2017-12-12 09:46:12', '2017-12-12 09:46:12');
 INSERT INTO `t_user` VALUES (2,'aix1','张三','123456','eee', '17859569358', '', 1, '2017-12-12 09:46:12', '2017-12-12 09:46:12');

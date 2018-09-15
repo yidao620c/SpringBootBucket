@@ -5,6 +5,7 @@ import com.xncoding.pos.common.dao.entity.User;
 import com.xncoding.pos.common.dao.repository.UserMapper;
 import com.xncoding.pos.common.mutidatesource.DSEnum;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
  */
 
 @Service
+@Transactional
 public class UserService {
 
     @Resource
