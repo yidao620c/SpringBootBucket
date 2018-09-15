@@ -22,25 +22,18 @@ logging:
 spring:
   profiles: dev
 
-logging:
-  level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: E:/logs/app.log
-
----
-
-#####################################################################
-########################  测试环境profile  ##########################
-#####################################################################
-
-spring:
-  profiles: test
+httpclient:
+  connectTimeout: 20000
+  requestTimeout: 20000
+  socketTimeout: 30000
+  defaultMaxPerRoute: 100
+  maxTotalConnections: 300
+  defaultKeepAliveTimeMillis: 20000
+  closeIdleConnectionWaitTimeSecs: 30
 
 logging:
   level:
     ROOT: INFO
     com:
       xncoding: DEBUG
-  file: /var/logs/app.log
+  file: D:/logs/app.log

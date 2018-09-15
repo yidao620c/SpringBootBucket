@@ -25,6 +25,17 @@
     </properties>
 
     <dependencies>
+        <!-- @ConfigurationProperties annotation processing (metadata for IDEs)
+                 生成spring-configuration-metadata.json类，需要引入此类-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

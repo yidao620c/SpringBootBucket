@@ -39,7 +39,6 @@ public class ApplicationTests {
 
     @Test
     public void testRestTemplate() {
-        logger.info("解绑成功后推送消息给对应的POS机");
         LoginParam param = new LoginParam();
         param.setUsername("admin");
         param.setPassword("12345678");
@@ -47,7 +46,6 @@ public class ApplicationTests {
         BaseResponse r = restTemplate.postForObject(loginUrl, param, BaseResponse.class);
         assertThat(r.isSuccess(), is(true));
 
-        logger.info("推送消息登录认证成功");
         String token = (String) r.getData();
         UnbindParam unbindParam = new UnbindParam();
         unbindParam.setImei("imei");
