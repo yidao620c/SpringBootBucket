@@ -1,6 +1,6 @@
-# CREATE DATABASE IF NOT EXISTS pos default charset utf8 COLLATE utf8_general_ci;
-# SET FOREIGN_KEY_CHECKS=0;
-# USE pos;
+CREATE DATABASE IF NOT EXISTS pos default charset utf8 COLLATE utf8_general_ci;
+SET FOREIGN_KEY_CHECKS=0;
+USE pos;
 
 -- 用户表
 DROP TABLE IF EXISTS `t_user`;
